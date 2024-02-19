@@ -11,7 +11,7 @@ def get_about(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     body = htmx.about_view()
     headers = {
-        "Access-Control-Allow-Origin": "https://portfolio.denny-bucklin.net"
+        "Access-Control-Allow-Origin": "*"
     }
     response = func.HttpResponse(body=body, status_code=200, headers=headers)
     return response
