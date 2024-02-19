@@ -9,7 +9,12 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 @app.route(route="about", auth_level=func.AuthLevel.ANONYMOUS)
 def get_about(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-    return htmx.about_view()
+    body = htmx.about_view()
+    headers = {
+        "Access-Control-Allow-Origin": "https://portfolio.denny-bucklin.net"
+    }
+    response = func.HttpResponse(body=body, status_code=200, headers=headers)
+    return response
 
 
 @app.function_name(name="folio")
