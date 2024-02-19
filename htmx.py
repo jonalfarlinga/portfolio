@@ -1,5 +1,5 @@
 from projects import PROJECTS
-API_HOST = "https://portfolio.denny-bucklin.net"
+API_HOST = "https://bucklin-portfolio-fetch.azurewebsites.net/api"
 
 
 def navlink(active: str):
