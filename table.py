@@ -1,7 +1,7 @@
 import os
 from azure.data.tables import TableServiceClient
 
-TABLE_CONNECTION_STRING = os.environ.get("TABLE_CONNECTION_STRING")
+TABLE_CONNECTION_STRING = os.environ.get("AzureWebJobsStorage")
 
 
 class CounterTable:
