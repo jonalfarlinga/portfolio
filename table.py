@@ -2,12 +2,12 @@ import os
 from azure.data.tables import TableServiceClient
 
 TABLE_CONNECTION_STRING = os.environ.get("TABLE_CONNECTION_STRING")
-if not TABLE_CONNECTION_STRING:
-    raise ValueError("TABLE_CONNECTION_STRING is not set.")
 
 
 class CounterTable:
     def increment(self):
+        if not TABLE_CONNECTION_STRING:
+            return 0
         with TableServiceClient.from_connection_string(
             conn_str=TABLE_CONNECTION_STRING
         ) as table_service:
