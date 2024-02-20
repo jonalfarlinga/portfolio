@@ -66,6 +66,8 @@ jobs:
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
         id: deploy-to-function
+        env:
+          TABLE_CONNECTION_STRING: ${{ secrets.TABLE_CONNECTION_STRING }}
         with:
           app-name: 'bucklin-portfolio-fetch'
           slot-name: 'Production'
