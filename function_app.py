@@ -37,4 +37,4 @@ def get_resume(req: func.HttpRequest) -> func.HttpResponse:
 def increment_counter(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('increment_counter() function processed a request.')
     count = table.CounterTable().increment()
-    return count + " visitors to this site"
+    return str(count) + " visitors to this site"
