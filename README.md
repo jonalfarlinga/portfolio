@@ -1,8 +1,6 @@
 # My Portfolio
-### The Cloud Resume Challenge
-
-## Description
-This portfolio contains the index and the backend dev environment for my cloud resume.  The live portfolio/resume can be found at [portfolio.denny-bucklin.net](portolio.denny-bucklin.net).
+## The Cloud Resume Challenge
+This portfolio contains the index and the backend dev environment for my cloud resume.  The live portfolio/resume can be found at [portfolio.denny-bucklin.net](portolio.denny-bucklin.net). This project challenges the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
 
 ## Tech Stack
 - The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
