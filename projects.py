@@ -8,6 +8,8 @@ PROJECTS = [
         "stack": "Stack: Bootstrap, React Redux, \
             RTK Query, FastAPI, PostgreSQL",
         "body": """
+        <a href="https://gitlab.com/canarydevs/birddex">Gitlab Link</a>
+        <a href="https://canarydevs.gitlab.io/birddex">Live Site</a>
         <ul>
           <li>
             <p>
@@ -49,8 +51,6 @@ PROJECTS = [
             </p>
           </li>
           </ul>
-        </ul>
-        <ul>
           <li>
             <p><b>The Experience:</b> I had several learning opportunities on \
                 this project. I had to tackle several new programming \
@@ -58,6 +58,7 @@ PROJECTS = [
                 about teamwork and programming in a group.
             </p>
           </li>
+          <ul>
           <li>
             <p><b>It was an eye-opening experience both on what I bring to the\
                  table in a software development team, and also how the \
@@ -73,6 +74,7 @@ PROJECTS = [
                 I didn't want to override their learning experiences. </p>
               </li>
             </ul>
+            </ul>
         """
     },
     {
@@ -83,6 +85,8 @@ PROJECTS = [
         "description": "A syllabus-builder for college classes.",
         "stack": "Stack: Bootstrap, React, FastAPI, Azure Cloud App",
         "body": """
+        <a href="https://github.com/jonalfarlinga/calends-online">Github Link</a>
+        <a href="https://calends.azurewebsites.net">Live Site</a>
         <ul>
           <li>
             <p>
@@ -103,7 +107,7 @@ PROJECTS = [
                 .docx output which includes a table of class meeting dates \
                 with holidays filled in.
             </p>
-            <ul>
+          <ul>
           <li>
             <p>
                 I then ported the code to a React and Django full-stack app. \
@@ -117,14 +121,14 @@ PROJECTS = [
                 when it becomes relevant.
             </p>
           </li>
-            </ul>
+          </ul>
           </li>
           <li>
             <p>
                 <b>The Experience:</b> This project has a simple front end, \
                 but it was incredibly enjoyable practice for backend logic.
             </p>
-          </li>
+          <ul>
           <li>
             <p>
                 <b>I learned a lot about how I learn.</b> I already knew that \
@@ -152,6 +156,8 @@ PROJECTS = [
                 previous "for fun" projects.
             </p>
           </li>
+        </ul>
+        </li>
       <ul>
             """,
     },
@@ -163,6 +169,7 @@ PROJECTS = [
         "description": "A car dealership management app.",
         "stack": "Stack: Bootstrap, React, Django, MySQL",
         "body": """
+        <a href="https://gitlab.com/dennis.bucklin/dealers-choice">Gitlab Link</a>
         <ul>
           <li>
             <p>
@@ -205,7 +212,7 @@ PROJECTS = [
              working together to build a software project.  I also learned \
             about my personal learning and investigation style.
             </p>
-          </li>
+          <ul>
           <li>
             <p>
             My partner was absolutely capable and it was excellent working \
@@ -213,6 +220,7 @@ PROJECTS = [
             issues together.
             </p>
           </li>
+          </ul>
         </ul>
         """,
     }
