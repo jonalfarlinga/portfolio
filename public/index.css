@@ -40,13 +40,6 @@ header > div {
     padding: 0.5rem
 }
 
-.logo {
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0.5rem;
-}
-
-
 h1 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
@@ -75,6 +68,11 @@ nav > p {
     width: 100%;
 }
 
+hr {
+    color: #F2d8c4;
+    border: double 5px;
+}
+
 .navlink {
     color: #Bf3f57;
     border: none;
@@ -89,9 +87,12 @@ nav > p {
     border-bottom: #F2d8c4 solid 2px;
 }
 
-hr {
-    color: #F2d8c4;
-    border: double 5px;
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0.5rem;
+    border-radius: 5%;
+    border: #Bf3f57 groove 2px;
 }
 
 /* Hire Me modal tags */

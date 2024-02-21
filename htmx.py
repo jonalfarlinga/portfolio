@@ -127,7 +127,7 @@ def resume_view():
         <div>
           <h2>RESUME</h2>
           <a id="pdf" href="https://drive.google.com/file/d/1AL8CKGTNFag81yr3OWzCZue2ECYXZQex/view?usp=sharing">PDF Resume</a>
-          <style>#pdf { text-align: right; width: 100%; }</style>
+          <style>#pdf { text-align: right; width: 100%; display: block }</style>
           <h3>Full Stack Developer</h3>
           <h6>Phone: (562) 619-6459 |
             <a href="mailto:dennis.bucklin@gmail.com"

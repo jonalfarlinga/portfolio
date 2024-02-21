@@ -153,5 +153,44 @@ PROJECTS = [
           </li>
         </ul>
         """,
+    },
+    {
+        "src": "./img/mlp_dash_screenshot.png",
+        "alt": "MLP-Dash screenshot",
+        "name": "MLP Dash",
+        "id": "mlp-dash",
+        "description": "Help Rainbow Dash destroy all of the rain clouds, but watch out for the evil Changelings!",
+        "stack": "Stack: Python, Pygame",
+        "body": """
+        <a href="https://github.com/jonalfarlinga/mlp-dash">Github Link</a>
+        <ul>
+          <li>
+            <p><b>The Pitch:</b> Rainbow Dash is on a mission to clear the skies of all the rain clouds. She's got to be quick, but she's got to be careful. The Changelings are out to get her, and they're not afraid to use the weather against her. Can you help her clear the skies?</p>
+          </li>
+          <li>
+            <p><b>The Work:</b> I built this game using Python and Pygame. I created the game logic using Pygame to handle the display and user input, and I used sprites and sounds borrowed from the internet to provide the content.</p>
+            <ul>
+              <li>
+                <p>Pygame handles the image and sound management, and also handles the sprite position and collision detection.</p>
+              </li>
+              <li>
+                <p>I used object-oriented design, creating player, cloud, and enemy sprites as separate objects.</p>
+              </li>
+              <li>
+                <p>I developed a process whereby the clouds change to a cloudburst image for a moment before disappearing.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><b>The Experience:</b> This project was a lot of fun to build. I learned a lot about game design and development, and I learned a lot about Python and Pygame.</p>
+            <ul>
+              <li>
+                <p><b>It's important to think about the data management in a game.<b> I had to learn how to manage game state and game objects. As I built this project, I went back and forth on whether to separate entities into their own files. I also considered collapsing entities into one class, but eventually settled on once class for the player, one for clouds, etc. I learned that deciding on a schema to manage game data is an important step.</p>
+              </li>
+              <li>
+                <p><b>It's important to think about the user experience.</b> I had introduced my daughter to computer games, but she had trouble understanding how to use the mouse. I designed this game to be touch screen and full-screen ready so that she could manage it more easily.</p>
+          </li>
+        </ul>
+        """
     }
 ]
