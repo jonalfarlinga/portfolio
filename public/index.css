@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/*
+Pallette
+
+#BF3F57 Red
+#555259 Grey
+#F2DAC4 Cream
+#8C837B Warm Grey
+#0D0D0D Black
+*/
+
+main {
+    background-color: #8c837B;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+body {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+
+/* Header tags */
+
+header {
+    background-image: url("./img/portfolio_banner.jpg");
+    background-color: black;
+    background-position: top right;
+    background-size: cover;
+    min-height: 40vh;
+    height: 40vh;
+}
+
+header > div {
+    backdrop-filter: blur(7px) brightness(70%);
+    width:fit-content;
+    border-radius: 5%;
+    padding: 0.5rem
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0.5rem;
+}
+
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    color: #Bf3f57;
+    text-shadow: #0d0d0d 2px 2px 5px;
+}
+
+h2 {
+    font-family: 'josefin sans', sans-serif;
+    color: #0d0d0d;
+    border-bottom: solid 3px #Bf3f57;
+    width: fit-content;
+}
+
+/* Navbar tags */
+
+nav {
+    background-color: #0d0d0d;
+}
+
+nav > p {
+    margin-top: 6rem;
+    text-align: start;
+    bottom: 10px;
+    font-size: x-small;
+    width: 100%;
+}
+
+.navlink {
+    color: #Bf3f57;
+    border: none;
+    margin-top: 1rem;
+    background: inherit;
+    font-family: 'josefin sans', sans-serif;
+    font-size: large;
+}
+
+.nl-active {
+    color: #F2d8c4;
+    border-bottom: #F2d8c4 solid 2px;
+}
+
+hr {
+    color: #F2d8c4;
+    border: double 5px;
+}
+
+/* Hire Me modal tags */
+
+.modal-dialog {
+    max-width: 60em;
+}
+
+.modal-content {
+    background-color: #F2d8c4;
+}
+
+/* Project tags */
+
+.card {
+    background: none;
+    border: #555259 solid 1px;
+    margin: 1rem;
+    padding: 0;
+}
+
+.card > img {
+    object-fit: cover;
+    max-height: 10rem;
+    object-position: top;
+}
+
+/* Global tags */
+
+p {
+    font-family: 'josefin sans', sans-serif;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.box {
+    width: fit-content
+}
+
+.btn, .btn:hover, .btn:active, .btn:visited {
+    background-color: #555259;
+    border-color: #0d0d0d;
+    color: #F2d8c4;
+}
+
+.box {
+    width: fit-content
+}
+
+a {
+    color:#Bf3f57
+}
+
+a:visited {
+    color:#FFFFFF
+}
+
+a:hover {
+    color:#555259
+}
+
+/* Id tags */
+
+#jobtitle {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-top: solid 1px #F2d8c4;
+    border-bottom: solid 1px #F2d8c4;
+    color: #F2d8c4;
+}
+
+#content {
+    background-color:#8C837B;
+    overflow: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #F2d8c4 #8C837B;
+    height: 60vh;
+    border: double 5px #F2d8c4;
+}
+
+#headshot {
+    background: radial-gradient(ellipse at center,  #F2d8c4 0%,#F2d8c4 47%,#F2d8c4 47%,#F2d8c4 71%, #0d0d0d00 23%);
+    float:left;
+    margin: 0.5rem;
+    max-width: 30%;
+    max-height: 40vh;
+}
+
+#headshot > img {
+    max-width: 100%;
+    max-height:40vh;
+    border-radius: 5%;
+}
+
+@media only screen and (max-height: 600px) {
+    #info > h1 {
+        font-size: 1.5rem;
+    }
+
+    #info > h4 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    header {
+        min-height: 20vh;
+        height: 20vh;
+    }
+
+    header > div {
+        width: 100%;
+        backdrop-filter: none;
+    }
+
+    #info {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    #info > .btn {
+        font-size: 0.75rem;
+        padding: .15rem;
+        padding-top: .15rem;
+        padding-bottom: .15rem;
+        height: fit-content;
+    }
+
+    #content {
+        height: 80vh;
+        min-height: 80vh;
+    }
+
+    .logo {
+        visibility: hidden;
+        height: 0;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .navlink {
+        font-size: x-small;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    nav > p {
+        text-align: left;
+        font-size: x-small;
+        padding-left: 0;
+    }
+
+    nav > h6 {
+        text-align: left;
+        font-size: x-small;
+        padding-left: 0;
+    }
+
+    .logo {
+        visibility: hidden;
+        height: 0;
+    }
+}
