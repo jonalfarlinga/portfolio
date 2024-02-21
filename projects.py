@@ -192,5 +192,25 @@ PROJECTS = [
           </li>
         </ul>
         """
+    },
+    {
+        "src": "./img/projektion_screenshot.png",
+        "alt": "Projektion screenshot",
+        "name": "Projektion",
+        "id": "projektion",
+        "description": "Track your and your colleague's projects in the Projektion web app. Create projects, add tasks, and assign them to users. View project tasks in list form or Gantt view.",
+        "stack": "Stack: Django, HTML, CSS, Git, Django/HTML Inheritance, plotly",
+        "body": """
+        <a href="https://gitlab.com/dennis.bucklin/project-alpha-apr">Gitlab Link</a>
+        <ul>
+          <li>
+            <p><b>The Pitch:</b> Projektion is a project management app. You can create projects, add tasks, and assign them to users. You can view project tasks in list form or Gantt view and manage task status.</p>
+          </li>
+          <li>
+            <p><b>The Work:</b> This was my first major poroject using Git and Django. I used Django/HTML and CSS to render the frontend, and inherited pages using Django/HTML. I built the data and views in Django's framework and used plotly to present the Gantt charts.</p>
+          </li>
+          <li>
+            <p><b>The Experience:</b> I was excited to get started with full stack developement. </p>
+        """
     }
 ]
