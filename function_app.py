@@ -1,7 +1,7 @@
 import azure.functions as func
 import logging
-import htmx
-import table
+import api.htmx as htmx
+import api.table as table
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 

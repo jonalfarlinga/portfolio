@@ -1,4 +1,4 @@
-from projects import PROJECTS
+from api.projects import PROJECTS
 API_HOST = "https://bucklin-portfolio-fetch.azurewebsites.net/api"
 # flake8: noqa Linting disabled to allow for long lines in HTML
 
@@ -102,7 +102,7 @@ def about_view():
           <p><b>Location:</b> San Marcos, TX</p>
           <p><b>Email:</b> <a href="mailto:dennis.bucklin@gmail.com"> dennis.bucklin@gmail.com</a></p>
           <p class="pb-3">
-            I aspire to design impactful systems that aid people regardless of scale, and aim to be a reliable support figure and provide assistance when needed. In essence, I am driven by a relentless pursuit of knowledge, blending technical expertise with a collaborative spirit and a passion for crafting solutions that truly make a difference.
+            I aspire to design impactful systems that aid people regardless of scale, and I aim to be a reliable support figure providing assistance to my peers when needed. In essence, I am driven by a relentless pursuit of knowledge, blending technical expertise with a collaborative spirit and a passion for crafting solutions that truly make a difference.
           </p>
           <div class="text-center row">
             <p class="col text-warning">Team Leader</p>
