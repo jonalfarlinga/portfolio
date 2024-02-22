@@ -1,6 +1,6 @@
 # My Portfolio
 
-1. [The Cloud Resume Challendge](#the-cloud-resume-challenge)
+1. [The Cloud Resume Challenge](#the-cloud-resume-challenge)
 2. [Tech Stack](#tech-stack)
 3. [Installation](#installation)
 4. [The Work](#the-work)
@@ -72,4 +72,3 @@ The project follows the path laid out in **The Cloud Resume Challenge Guidebook*
   - [X] Tech Stack
   - [X] Image File Name
   - [ ] Project Demos
-

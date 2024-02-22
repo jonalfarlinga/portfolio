@@ -106,7 +106,7 @@ PROJECTS = [
         "src": "./img/dealers_choice.png",
         "alt": "Dealer's Choice screenshot",
         "name": "Dealer's Choice",
-        "id": "calends",
+        "id": "dealers-choice",
         "description": "A car dealership management app.",
         "stack": "Stack: Bootstrap, React, Django, MySQL",
         "body": """
