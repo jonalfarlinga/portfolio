@@ -102,7 +102,7 @@ def about_view():
           <p><b>Location:</b> San Marcos, TX</p>
           <p><b>Email:</b> <a href="mailto:dennis.bucklin@gmail.com"> dennis.bucklin@gmail.com</a></p>
           <p class="pb-3">
-            A full stack software developer with a proven track record in process optimization and analytical prowess. Expert in leading teams, implementing efficient protocols, and ensuring seamless operations. Adept at leveraging technology for impactful results.
+            I aspire to design impactful systems that aid people regardless of scale, and aim to be a reliable support figure and provide assistance when needed. In essence, I am driven by a relentless pursuit of knowledge, blending technical expertise with a collaborative spirit and a passion for crafting solutions that truly make a difference.
           </p>
           <div class="text-center row">
             <p class="col text-warning">Team Leader</p>

@@ -198,7 +198,7 @@ PROJECTS = [
         "alt": "Projektion screenshot",
         "name": "Projektion",
         "id": "projektion",
-        "description": "Track your and your colleague's projects in the Projektion web app. Create projects, add tasks, and assign them to users. View project tasks in list form or Gantt view.",
+        "description": "Track your and your colleague's projects in the Projektion web app.",
         "stack": "Stack: Django, HTML, CSS, Git, Django/HTML Inheritance, plotly",
         "body": """
         <a href="https://gitlab.com/dennis.bucklin/project-alpha-apr">Gitlab Link</a>
@@ -210,7 +210,14 @@ PROJECTS = [
             <p><b>The Work:</b> This was my first major poroject using Git and Django. I used Django/HTML and CSS to render the frontend, and inherited pages using Django/HTML. I built the data and views in Django's framework and used plotly to present the Gantt charts.</p>
           </li>
           <li>
-            <p><b>The Experience:</b> I was excited to get started with full stack developement. </p>
+            <p><b>The Experience:</b> I was excited to get started with full stack developement. I cut my teeth on CSS here, and made some important discoveries.</p>
+            <ul>
+              <li>
+                <p><b>I can always check the computed size of an object.</b> I had set some setting for object size that resulted in the page rendering with an extra white border around the right and bottom corner of the screen. I struggled with settings until I used the dev tools to inspect each element, which revealed that the footer was bigger than intended and stretched the viewport outsidthe border fo the page. This was incredibly helpful later in creating my portfolio page.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
         """
     }
 ]
