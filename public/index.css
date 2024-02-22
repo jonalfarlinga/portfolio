@@ -50,7 +50,7 @@ h1 {
 h2 {
     font-family: 'josefin sans', sans-serif;
     color: #0d0d0d;
-    border-bottom: solid 3px #Bf3f57;
+    border-bottom: solid 3px #990000;
     width: fit-content;
 }
 
@@ -143,7 +143,8 @@ p {
 }
 
 a {
-    color:#Bf3f57
+    color:#990000;
+    font-weight: 700;
 }
 
 a:visited {
@@ -165,12 +166,12 @@ a:hover {
 }
 
 #content {
-    background-color:#8C837B;
+    background-color:#736f79;
     overflow: scroll;
     scrollbar-width: thin;
-    scrollbar-color: #F2d8c4 #8C837B;
+    scrollbar-color: #736f79 #f2d8c4;
     height: 60vh;
-    border: double 5px #F2d8c4;
+    border: double 5px #f2d8c4;
 }
 
 #headshot {
