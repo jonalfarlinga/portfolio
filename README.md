@@ -2,10 +2,10 @@
 
 1. [The Cloud Resume Challenge](#the-cloud-resume-challenge)
 2. [Tech Stack](#tech-stack)
-3. [Installation](#installation)
-4. [The Work](#the-work)
-5. [The Experience](#the-experience)
-6. [Author and Acknowledgment](#author-and-acknowledgment)
+3. [The Work](#the-work)
+4. [The Experience](#the-experience)
+5. [Author and Acknowledgment](#author-and-acknowledgment)
+6. [Installation](#installation)
 7. [Dev Roadmap](#dev-roadmap)
 
 ## The Cloud Resume Challenge
@@ -17,17 +17,6 @@ This portfolio contains the index and the backend dev environment for my cloud r
 - I use **HTMX** and a **Python** backend to serve the separate page views.
 - The backend API is served from an **Azure Fucntions App**
 - The backend interacts with an **Azure Table** in blob storage to get and update a continuous count of page loads.
-
-## Installation
-If you want to recreate the dev environment, it's simple. Begin by downloading this code-base.
-
-1. Navigate to the `/dev/python` directory in the terminal and install a Python Virtual Environment: `python -m venv .venv`
-2. Activate the new virtual environment (this step will differ based on your OS)
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run the Uvicorn server: `uvicorn main:app --host 0.0.0.0 --reload`
-5. Copy the absolute path to `/public/index_dev.html` and paste it in your browser.
-
-You should now see the basic page, with the About page fetched on page load.
 
 ## The Work
 To build my cloud-based online resume, I first wrote the site in HTMX and and CSS. This took longer than expected, as I spent a long time styling the page manually.
@@ -49,7 +38,7 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 - Azure Functions Python documentation leaves a lot to be desired. I couldn't get the CORS properties to work in the portal, which was a common complaint online. Instead I had to make my function return its CORS header explicitly. It currently returns an allowance for all CORS hosts because neither the custom domain nor the storage endpoint were allowing the POST request to complete. I also haven't been able to discover how to restrict access methods on functions, although I believe I can cause a function to respond differently to different request methods.
 
-- I have to be careful about the prodducts I use from Azure. The wrong subscription can add up quickly.
+- I have to be careful about the products I use from Azure. The wrong subscription can add up quickly.
 
 ## Author and acknowledgment
 This project is written by and for Denny Bucklin.
@@ -57,6 +46,17 @@ This project is written by and for Denny Bucklin.
 With thanks to my wife and the team in Room 12 for criticizing my color choices.
 
 The project follows the path laid out in **The Cloud Resume Challenge Guidebook** by Forest Brazeal.
+
+## Installation
+If you want to recreate the dev environment, it's simple. Begin by downloading this code-base.
+
+1. Navigate to the `/dev/python` directory in the terminal and install a Python Virtual Environment: `python -m venv .venv`
+2. Activate the new virtual environment (this step will differ based on your OS)
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run the Uvicorn server: `uvicorn main:app --host 0.0.0.0 --reload`
+5. Copy the absolute path to `/public/index_dev.html` and paste it in your browser.
+
+You should now see the basic page, with the About page fetched on page load.
 
 ## Dev Roadmap
 - I would like to add Github Actions to keep `index.html` and `index.css` automatically updated on Azure.
