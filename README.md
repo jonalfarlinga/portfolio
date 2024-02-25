@@ -9,19 +9,26 @@
 7. [Dev Roadmap](#dev-roadmap)
 
 ## The Cloud Resume Challenge
-This portfolio contains the index and the backend dev environment for my cloud resume.  The live portfolio/resume can be found at [portfolio.denny-bucklin.net](portolio.denny-bucklin.net). This project challenges the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
+This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
+
+The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](portolio.denny-bucklin.net).
+
 
 ## Tech Stack
-#### HTMX, CSS(Bootstrap), Python(Azure Functions), Azure Tables
-- The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
-- I use **HTMX** and a **Python** backend to serve the separate page views.
-- The backend API is served from an **Azure Fucntions App**
-- The backend interacts with an **Azure Table** in blob storage to get and update a continuous count of page loads.
+HTMX, CSS, Python, Azure, Database
+#### Frontend
+The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
+#### Backend
+I use **HTMX** and a **Python** backend to serve the separate page views.
+#### Hosting Service
+The backend API is served from an **Azure Functions App**
+#### Database
+The backend interacts with an **Azure Table** in blob storage to get and update a continuous count of page loads.
 
 ## The Work
 To build my cloud-based online resume, I first wrote the site in HTMX and and CSS. This took longer than expected, as I spent a long time styling the page manually.
 
-Next I created a Static Web App in my Azure Storage Account, and uploaded the `index.html`, `index.css`, and `img/` assets to the `$web` container. By navigating to the storage account url, I could see the live webpage, although it had now content without a backend.
+Next I created a Static Web App in my Azure Storage Account, and uploaded the `index.html`, `index.css`, and `/img` assets to the `$web` container. By navigating to the storage account url, I could see the live webpage, although it had now content without a backend.
 
 For a public endpoint, I would want a custom url, so I purchased a domain on Cloudflare. Then I created an Azure CDN account and endpoint and created a CNAME on my DNS to associate the Azure endpoint to the domain name. Finally, I could create a custom domain on my CDN account, completing the bridge from my Azure Storage Static Page to my custom domain.
 
@@ -34,7 +41,7 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 - I struggled to set up a `CNAME` for my custom domain. I was able to add the record on Cloudflare all right, but it would never show up on nslookup.io. Finally, after much fiddling, I found out that the Cloudflare proxy was preventing Azure from reaching the `CNAME` record. After correcting this, I rapidly fixed the issues and brought the site up live through my custom server.
 
-- There are a number of environment variables in the Github Actions pipeline. I tried several ways to add a necessary key to the pipeline, and kept having issues, until I learned that Github Actions variables are not accessible by my functions. I looked up where to add variables in Azure Functions, and found out that the variable I was triyng to add already exists in the Functions environment.
+- There are a number of environment variables in the Github Actions pipeline. I tried several ways to add a necessary key to the pipeline, and kept having issues, until I learned that Github Actions variables are not accessible by my functions. _I looked up where to add variables in Azure Functions, and found out that the variable I was triyng to add already exists in the Functions environment._ **RTFM**
 
 - Azure Functions Python documentation leaves a lot to be desired. I couldn't get the CORS properties to work in the portal, which was a common complaint online. Instead I had to make my function return its CORS header explicitly. It currently returns an allowance for all CORS hosts because neither the custom domain nor the storage endpoint were allowing the POST request to complete. I also haven't been able to discover how to restrict access methods on functions, although I believe I can cause a function to respond differently to different request methods.
 
