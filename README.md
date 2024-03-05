@@ -15,7 +15,7 @@ The root of this repository contains the `function_app` for my Azure Functions A
 
 
 ## Tech Stack
-HTMX, CSS, Python, Azure, Database
+#### HTMX, CSS(Bootstrap), Python(Azure Functions), Azure Tables
 #### Frontend
 The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
 #### Backend
@@ -50,7 +50,7 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 ## Author and acknowledgment
 This project is written by and for Denny Bucklin.
 
-With thanks to my wife and the team in Room 12 for criticizing my color choices.
+With thanks to my wife and the Base 12 team for criticizing my color choices.
 
 The project follows the path laid out in **The Cloud Resume Challenge Guidebook** by Forest Brazeal.
 

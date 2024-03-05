@@ -8,8 +8,10 @@ PROJECTS = [
         "description": "A life-list app for birders.",
         "stack": "Stack: Bootstrap, React Redux, RTK Query, FastAPI, PostgreSQL",
         "body": """
-        <a href="https://gitlab.com/canarydevs/birddex">Gitlab Link</a>
-        <a href="https://canarydevs.gitlab.io/birddex">Live Site</a>
+        <div class="d-flex">
+          <a href="https://gitlab.com/canarydevs/birddex">Gitlab Link</a>
+          <a href="https://canarydevs.gitlab.io/birddex">Live Site</a>
+        </div>
         <ul>
           <li>
             <p>
@@ -60,9 +62,11 @@ PROJECTS = [
         "description": "A syllabus-builder for college classes.",
         "stack": "Stack: Bootstrap, React, FastAPI, Azure Cloud App",
         "body": """
-        <a href="https://github.com/jonalfarlinga/calends-online">Github Link</a>
-        <a href="https://calends.azurewebsites.net">Live Site</a>
-        <a href="https://github.com/jonalfarlinga/calends">Github Link - Terminal App</a>
+        <div class="d-flex">
+          <a href="https://github.com/jonalfarlinga/calends-online">Github Link</a>
+          <a href="https://calends.azurewebsites.net">Live Site</a>
+          <a href="https://github.com/jonalfarlinga/calends">Github Link - Terminal App</a>
+        </div>
         <ul>
           <li>
             <p>
@@ -110,7 +114,9 @@ PROJECTS = [
         "description": "A car dealership management app.",
         "stack": "Stack: Bootstrap, React, Django, MySQL",
         "body": """
-        <a href="https://gitlab.com/dennis.bucklin/dealers-choice">Gitlab Link</a>
+        <div class="d-flex">
+          <a href="https://gitlab.com/dennis.bucklin/dealers-choice">Gitlab Link</a>
+        </div>
         <ul>
           <li>
             <p>
@@ -162,7 +168,9 @@ PROJECTS = [
         "description": "Help Rainbow Dash destroy all of the rain clouds, but watch out for the evil Changelings!",
         "stack": "Stack: Python, Pygame",
         "body": """
-        <a href="https://github.com/jonalfarlinga/mlp-dash">Github Link</a>
+        <div class="d-flex">
+          <a href="https://github.com/jonalfarlinga/mlp-dash">Github Link</a>
+        </div>
         <ul>
           <li>
             <p><b>The Pitch:</b> Rainbow Dash is on a mission to clear the skies of all the rain clouds. She's got to be quick, but she's got to be careful. The Changelings are out to get her, and they're not afraid to use the weather against her. Can you help her clear the skies?</p>
@@ -201,7 +209,9 @@ PROJECTS = [
         "description": "Track your and your colleague's projects in the Projektion web app.",
         "stack": "Stack: Django, HTML, CSS, Git, Django/HTML Inheritance, plotly",
         "body": """
-        <a href="https://gitlab.com/dennis.bucklin/project-alpha-apr">Gitlab Link</a>
+        <div class="d-flex">
+          <a href="https://gitlab.com/dennis.bucklin/project-alpha-apr">Gitlab Link</a>
+        </div>
         <ul>
           <li>
             <p><b>The Pitch:</b> Projektion is a project management app. You can create projects, add tasks, and assign them to users. You can view project tasks in list form or Gantt view and manage task status.</p>
