@@ -38,3 +38,10 @@ def increment_counter(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('increment_counter() function processed a request.')
     count = table.CounterTable().increment()
     return str(count) + " visitors to this site"
+
+
+@app.function_name(name="vlog")
+@app.route(route="vlog", auth_level=func.AuthLevel.ANONYMOUS)
+def get_vlog(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('get_vlog() function processed a request.')
+    return htmx.vlog_view()
