@@ -9,8 +9,21 @@ PROJECTS = [
         "stack": "Stack: Bootstrap, React Redux, RTK Query, FastAPI, PostgreSQL",
         "body": """
         <div class="d-flex">
-          <a href="https://gitlab.com/canarydevs/birddex">Gitlab Link</a>
-          <a href="https://canarydevs.gitlab.io/birddex">Live Site</a>
+          <a
+            href="https://gitlab.com/canarydevs/birddex"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
+          <a
+            href="https://canarydevs.gitlab.io/birddex"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Live Site</a>
+          <a
+            href="https://youtu.be/xJsiBTLnWy4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Video Demo</a>
         </div>
         <ul>
           <li>
@@ -63,9 +76,21 @@ PROJECTS = [
         "stack": "Stack: Bootstrap, React, FastAPI, Azure Cloud App",
         "body": """
         <div class="d-flex">
-          <a href="https://github.com/jonalfarlinga/calends-online">Github Link</a>
-          <a href="https://calends.azurewebsites.net">Live Site</a>
-          <a href="https://github.com/jonalfarlinga/calends">Github Link - Terminal App</a>
+          <a
+            href="https://github.com/jonalfarlinga/calends-online"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Github Link</a>
+          <a
+            href="https://calends.azurewebsites.net"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Live Site</a>
+          <a
+            href="https://github.com/jonalfarlinga/calends"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Github Link - Terminal App</a>
         </div>
         <ul>
           <li>
@@ -115,7 +140,11 @@ PROJECTS = [
         "stack": "Stack: Bootstrap, React, Django, MySQL",
         "body": """
         <div class="d-flex">
-          <a href="https://gitlab.com/dennis.bucklin/dealers-choice">Gitlab Link</a>
+          <a
+            href="https://gitlab.com/dennis.bucklin/dealers-choice"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
         </div>
         <ul>
           <li>
@@ -169,7 +198,11 @@ PROJECTS = [
         "stack": "Stack: Python, Pygame",
         "body": """
         <div class="d-flex">
-          <a href="https://github.com/jonalfarlinga/mlp-dash">Github Link</a>
+          <a
+            href="https://github.com/jonalfarlinga/mlp-dash"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Github Link</a>
         </div>
         <ul>
           <li>
@@ -210,7 +243,11 @@ PROJECTS = [
         "stack": "Stack: Django, HTML, CSS, Git, Django/HTML Inheritance, plotly",
         "body": """
         <div class="d-flex">
-          <a href="https://gitlab.com/dennis.bucklin/project-alpha-apr">Gitlab Link</a>
+          <a
+            href="https://gitlab.com/dennis.bucklin/project-alpha-apr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
         </div>
         <ul>
           <li>

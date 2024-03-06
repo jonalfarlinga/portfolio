@@ -73,6 +73,10 @@ hr {
     border: double 5px;
 }
 
+.gitlink {
+    padding-right: 0;
+}
+
 .navlink {
     color: #Bf3f57;
     border: none;
@@ -145,6 +149,7 @@ p {
 a {
     color:#990000;
     font-weight: 700;
+    padding-right: 1rem
 }
 
 a:visited {

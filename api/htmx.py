@@ -28,6 +28,14 @@ def navlink(active: str):
             hx-target="#content"
             hx-swap-oob="true"
         >Resume</button>
+        <button
+            class="navlink {'nl-active' if active == 'vlog' else ''}"
+            id="vlog"
+            hx-get="{API_HOST}/vlog"
+            hx-trigger="click"
+            hx-target="#content"
+            hx-swap-oob="true"
+        >Video Demos</button>
     """
 
 
@@ -131,6 +139,7 @@ def resume_view():
               href="https://drive.google.com/file/d/1AL8CKGTNFag81yr3OWzCZue2ECYXZQex/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
+              style="padding-right: 0;"
             >PDF Resume</a>
           </div>
           <style>#pdf { text-align: right; display: block; margin-right: 2em }</style>
@@ -218,5 +227,24 @@ def resume_view():
               <li>Ensured public & commercial boating safety & security by standing radio guard, utilizing VHS radio & multi-line phone</li>
             </ul>
           </p>
+        </div>
+    """
+
+def vlog_view():
+    return navlink("vlog") + """
+        <h2>DEMOS</h2>
+        <div>
+          <h4>LeetCode75</h4>
+          <a
+            href="https://www.youtube.com/playlist?list=PLg92KPokRp2zgOolEORM5m9TcvVrUjo1G"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Youtube Playlist</a>
+          <h4>Birddex Video Demo</h4>
+                    <a
+            href="https://youtu.be/xJsiBTLnWy4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Video Demo</a>
         </div>
     """
