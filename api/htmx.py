@@ -151,9 +151,9 @@ def resume_view():
           <h4>Technical Skills</h4>
           <p>
             <b>Programming Languages</b> | JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2
-            <b>Front-End</b> | React 18, Next.js, DOM manipulation
-            <b>Back-End Frameworks</b> | Node, Django, FastAPI
-            <b>Other</b> | Git, CI/CD, Docker, Deployment, Authorization, Tableau
+            <b>Front-End</b> | HTMX, React 18, Next.js, DOM manipulation
+            <b>Back-End</b> | Node, Django, FastAPI
+            <b>Other</b> | Git, CI/CD, Docker, Axure, Deployment, Authorization, Tableau
           </p>
           <hr/>
           <h4>Revelant Projects</h4>
@@ -190,11 +190,18 @@ def resume_view():
           <hr/>
           <h4>Education</h4>
           <p>
-            <b>Advanced Software Engineering Immersive Program | Hack Reactor</b>
+            <b>Software Engineering with Javascript and Python | Hack Reactor</b>
             <ul>
               <li>Built running applications based on software requirements</li>
               <li>Learned and applied Domain Driven Design</li>
               <li>Deployed near-real-time applications using SQL and FastAPI</li>
+            </ul>
+          </p>
+          <p>
+            <b>Azure Fundamentals | Microsoft</b>
+            <ul>
+              <li>Learned the basics of cloud computing and Azure services</li>
+              <li>Understood the value of cloud computing and how it can help businesses</li>
             </ul>
           </p>
           <p>
