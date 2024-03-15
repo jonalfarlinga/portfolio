@@ -189,6 +189,39 @@ PROJECTS = [
         </ul>
         """,
     },
+        {
+        "src": "./img/construction.jpg",
+        "alt": "Under Construction",
+        "name": "Task-Time",
+        "id": "tasktime",
+        "description": "A simple todo app made for fun, education, and personal use with Django, MongoDB and HTMX.",
+        "stack": "Stack: Django, MongoDB, HTMX, HTML, CSS, Git",
+        "body": """
+        <div class="d-flex">
+          <a
+            href="https://gitlab.com/dennis.bucklin/task-time"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
+        </div>
+        <ul>
+          <li>
+            <p><b>The Pitch:</b> Task-Time will allow users to add and schedule tasks easily and quickly. Drag-and-drop scheduling and recurring appointments are just some of the features I plan to implement. </p>
+          </li>
+          <li>
+            <p><b>The Work:</b> So far, I've built a Django project that uses MongoDB in a Docker environment to store tasks and validate users. Django templates are rendered as a single page app using HTMX in the browser. </p>
+          </li>
+          <li>
+            <p><b>The Experience:</b> Getting Django to cooperate with HTMX wasn't as obvious as I'd like, but I worked it out. </p>
+            <ul>
+              <li>
+                <p><b></p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        """
+    },
     {
         "src": "./img/mlp_dash_screenshot.png",
         "alt": "MLP-Dash screenshot",
