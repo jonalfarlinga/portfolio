@@ -215,7 +215,7 @@ PROJECTS = [
             <p><b>The Experience:</b> Getting Django to cooperate with HTMX wasn't as obvious as I'd like, but I worked it out. </p>
             <ul>
               <li>
-                <p><b></p>
+                <p><b></b></p>
               </li>
             </ul>
           </li>
