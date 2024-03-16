@@ -33,7 +33,7 @@ For a public endpoint, I would want a custom url, so I purchased a domain on Clo
 
 Next, I needed to upload a set of functions to an Azure Function App. I found the best way to do this was to use the Azure plugin for VSCode to make a test environment. Once I was sure that the functions worked, I uploaded them via Github Actions to the Azure Functions App.
 
-I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflow to push project changes to the azure storage account's static web page.
+I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
