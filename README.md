@@ -5,8 +5,7 @@
 3. [The Work](#the-work)
 4. [The Experience](#the-experience)
 5. [Author and Acknowledgment](#author-and-acknowledgment)
-6. [Installation](#installation)
-7. [Dev Roadmap](#dev-roadmap)
+6. [Dev Roadmap](#dev-roadmap)
 
 ## The Cloud Resume Challenge
 This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
@@ -34,6 +33,8 @@ For a public endpoint, I would want a custom url, so I purchased a domain on Clo
 
 Next, I needed to upload a set of functions to an Azure Function App. I found the best way to do this was to use the Azure plugin for VSCode to make a test environment. Once I was sure that the functions worked, I uploaded them via Github Actions to the Azure Functions App.
 
+I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
+
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
 
@@ -47,23 +48,14 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 - I have to be careful about the products I use from Azure. The wrong subscription can add up quickly.
 
+- I struggled to understand ARM templates, but I was able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
+
 ## Author and acknowledgment
 This project is written by and for Denny Bucklin.
 
 With thanks to my wife and the Base 12 team for criticizing my color choices.
 
 The project follows the path laid out in **The Cloud Resume Challenge Guidebook** by Forest Brazeal.
-
-## Installation
-If you want to recreate the dev environment, it's simple. Begin by downloading this code-base.
-
-1. Navigate to the `/dev/python` directory in the terminal and install a Python Virtual Environment: `python -m venv .venv`
-2. Activate the new virtual environment (this step will differ based on your OS)
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run the Uvicorn server: `uvicorn main:app --host 0.0.0.0 --reload`
-5. Copy the absolute path to `/public/index_dev.html` and paste it in your browser.
-
-You should now see the basic page, with the About page fetched on page load.
 
 ## Dev Roadmap
 - I would like to add Github Actions to keep `index.html` and `index.css` automatically updated on Azure.
