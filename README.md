@@ -55,10 +55,10 @@ This project is written by and for Denny Bucklin.
 
 With thanks to my wife and the Base 12 team for criticizing my color choices.
 
-The project follows the path laid out in **The Cloud Resume Challenge Guidebook** by Forest Brazeal.
+The project follows the path laid out in **The Cloud Resume Challenge Guidebook** by [Forrest Brazeal](@forrestbrazeal).
 
 ## Dev Roadmap
-- I would like to add Github Actions to keep `index.html` and `index.css` automatically updated on Azure.
+- <strike>I would like to add Github Actions to keep `index.html` and `index.css` automatically updated on Azure.</strike>
 
 - I want to add a testimonials page
 
