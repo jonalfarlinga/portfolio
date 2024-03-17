@@ -35,6 +35,7 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
+![App diagram](./public/img/App_diagram.png)
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
 
