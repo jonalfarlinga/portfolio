@@ -239,7 +239,12 @@ def resume_view():
 
 def vlog_view():
     return navlink("vlog") + """
-        <h2>DEMOS</h2>
+      <div>
+        <h2>VIDEO INTRODUCTION</h2>
+        <video controls>
+          <source src="./vid/dbucklin_pitch.mkv" type="video/mp4">
+        </video>
+        <h2 class="mb-3">DEMOS</h2>
         <div>
           <h4>LeetCode75</h4>
           <a
@@ -248,10 +253,11 @@ def vlog_view():
             rel="noopener noreferrer"
           >Youtube Playlist</a>
           <h4>Birddex Video Demo</h4>
-                    <a
+          <a
             href="https://youtu.be/xJsiBTLnWy4"
             target="_blank"
             rel="noopener noreferrer"
           >Video Demo</a>
         </div>
+      </div>
     """
