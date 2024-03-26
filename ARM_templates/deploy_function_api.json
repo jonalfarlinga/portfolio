@@ -1,0 +1,278 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apiPrefix": {
+            "type": "string"
+        },
+       "repoUrl": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 11
+        },
+        "serverFarmResourceGroup": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().name]"
+        },
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": "871380c4-f7c4-470a-af48-8a2d19085bf0"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "branch": {
+            "type": "string",
+            "defaultValue": "main"
+        }
+    },
+    "variables": {
+        "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
+        "uniqueFunctionName": "[concat(parameters('apiPrefix'), uniqueString(resourceGroup().id))]",
+        "oidcUserIdentityName": "[concat(parameters('apiPrefix'), '-oidc-identity')]",
+        "hostingPlanName": "[concat(parameters('apiPrefix'), '-hosting-plan')]"
+
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-11-01",
+            "name": "[variables('uniqueFunctionName')]",
+            "type": "Microsoft.Web/sites",
+            "kind": "functionapp,linux",
+            "location": "[parameters('location')]",
+            "tags": {
+                "web": "portfolio"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStorageName'))]"
+            ],
+            "properties": {
+                "name": "[variables('uniqueFunctionName')]",
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value": "~4"
+                        },
+                        {
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value": "python"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('uniqueStorageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('uniqueStorageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value": "bucklin-functionsbbd4"
+                        }
+                    ],
+                    "cors": {
+                        "allowedOrigins": [
+                            "https://portal.azure.com"
+                        ]
+                    },
+                    "use32BitWorkerProcess": false,
+                    "ftpsState": "FtpsOnly",
+                    "linuxFxVersion": "Python|3.11"
+                    },
+                "clientAffinityEnabled": false,
+                "virtualNetworkSubnetId": null,
+                "publicNetworkAccess": "Enabled",
+                "httpsOnly": true,
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+            },
+            "resources": [
+                {
+                    "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+                    "apiVersion": "2022-09-01",
+                    "name": "[concat(variables('uniqueFunctionName'), '/scm')]",
+                    "properties": {
+                        "allow": false
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]"
+                    ]
+                },
+                {
+                    "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+                    "apiVersion": "2022-09-01",
+                    "name": "[concat(variables('uniqueFunctionName'), '/ftp')]",
+                    "properties": {
+                        "allow": false
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]"
+                    ]
+                },
+                {
+                    "type": "sourcecontrols",
+                    "name": "web",
+                    "apiVersion": "2020-12-01",
+                    "properties": {
+                        "RepoUrl": "[parameters('repoUrl')]",
+                        "branch": "[parameters('branch')]",
+                        "IsManualIntegration": false,
+                        "deploymentRollbackEnabled": false,
+                        "isMercurial": false,
+                        "isGitHubAction": true,
+                        "gitHubActionConfiguration": {
+                            "generateWorkflowFile": true,
+                            "workflowSettings": {
+                                "appType": "functionapp",
+                                "authType": "oidc",
+                                "publishType": "code",
+                                "os": "linux",
+                                "runtimeStack": "python",
+                                "workflowApiVersion": "2022-10-01",
+                                "slotName": "production",
+                                "variables": {
+                                    "runtimeVersion": "3.11",
+                                    "clientId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName')), '2018-11-30').clientId]",
+                                    "tenantId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName')), '2018-11-30').tenantId]"
+                                }
+                            }
+                        }
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]",
+                        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName'))]"
+                    ]
+                }
+            ]
+        },
+        {
+            "apiVersion": "2018-11-30",
+            "name": "[variables('oidcUserIdentityName')]",
+            "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]"
+            ],
+            "properties": {},
+            "resources": [
+                {
+                    "apiVersion": "2022-01-31-preview",
+                    "name": "[uniqueString(resourceGroup().id)]",
+                    "type": "federatedIdentityCredentials",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName'))]"
+                    ],
+                    "properties": {
+                        "audiences": [
+                            "api://AzureADTokenExchange"
+                        ],
+                        "issuer": "https://token.actions.githubusercontent.com",
+                        "subject": "repo:jonalfarlinga/portfolio:environment:production"
+                    }
+                }
+            ]
+        },
+        {
+            "apiVersion": "2022-04-01",
+            "name": "[guid(resourceGroup().id, deployment().name)]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]",
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName'))]"
+            ],
+            "scope": "[concat('Microsoft.web/sites/', variables('uniqueFunctionName'))]",
+            "properties": {
+                "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772')]",
+                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('oidcUserIdentityName')), '2018-11-30').principalId]",
+                "principalType": "ServicePrincipal"
+            }
+        },
+        {
+            "apiVersion": "2022-09-01",
+            "name": "[variables('hostingPlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[parameters('location')]",
+            "kind": "linux",
+            "tags": {
+                "web": "portfolio"
+            },
+            "dependsOn": [],
+            "properties": {
+                "name": "[variables('hostingPlanName')]",
+                "workerSize": "0",
+                "workerSizeId": "0",
+                "numberOfWorkers": "1",
+                "reserved": true
+            },
+            "sku": {
+                "Tier": "Dynamic",
+                "Name": "Y1"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-09-01",
+            "name": "[variables('uniqueStorageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": true
+            }
+        },
+        {
+            "name": "[concat(variables('uniqueStorageName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/tableServices",
+            "apiVersion": "2019-06-01",
+            "properties": {
+                "cors": {
+                    "corsRules": [
+                        {
+                            "allowedOrigins": [
+                                "*"
+                            ],
+                            "allowedMethods": [
+                                "PUT",
+                                "GET",
+                                "POST"
+                            ],
+                            "maxAgeInSeconds": 0,
+                            "exposedHeaders": [
+                                "*"
+                            ],
+                            "allowedHeaders": [
+                                "*"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName'))]"
+            ],
+            "resources": []
+        },
+        {
+            "name": "[concat(variables('uniqueStorageName'),'/default/counter')]",
+            "type": "Microsoft.Storage/storageAccounts/tableServices/tables",
+            "apiVersion": "2019-06-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/tableServices', variables('uniqueStorageName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName'))]"
+            ]
+        }
+    ],
+    "outputs": {
+        "storageAccountName": {
+            "type": "object",
+            "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+        }
+    }
+}

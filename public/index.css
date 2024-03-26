@@ -124,6 +124,13 @@ hr {
     object-position: top;
 }
 
+/* Vlog tags */
+
+video {
+    width: 40%;
+    padding-top: 3rem;
+}
+
 /* Global tags */
 
 p {
