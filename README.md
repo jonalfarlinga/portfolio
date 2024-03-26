@@ -51,6 +51,8 @@ I added a unit test for the Azure Tables `increment` function and I wrote a Gith
 
 - I struggled to understand ARM templates, but I was able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
 
+- I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I combined the storage account and endpoint into one template since the function app is dependent on a storage account.
+
 ## Author and acknowledgment
 This project is written by and for Denny Bucklin.
 

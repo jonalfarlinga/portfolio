@@ -1,12 +1,12 @@
 # Deployment Templates for Storage Account and CDN
 
-## Deploy Static Account
+## Deploy Storage Account and FunctionApp
 
 az deployment group create `
-  --name storage-template `
+  --name api-func `
   --resource-group bucklin-portfolio-RG `
-  --template-file "ARM_templates/deploy_storage.json" `
-  --parameters storagePrefix="store"
+  --template-file "ARM_templates/deploy_function_api.json" `
+  --parameters repoUrl="https://github.com/jonalfarlinga/portfolio" apiPrefix="apifunc" storagePrefix="store"
 
 After deploying, navigate to the storage account on Azure Portal and enable Static websites.
 
@@ -17,14 +17,6 @@ az deployment group create `
   --resource-group bucklin-portfolio-RG `
   --template-file "ARM_templates/deploy_endpoint.json" `
   --parameters profilePrefix="cdnprofile" endpointName="staticweb"
-
-## Deploy FunctionApp
-
-az deployment group create `
-  --name api-func `
-  --resource-group bucklin-portfolio-RG `
-  --template-file "ARM_templates/deploy_function_api.json" `
-  --parameters storageAccountName="store2kjoo37i24nsw" repoUrl="https://github.com/jonalfarlinga/portfolio" apiPrefix="api_func"
 
 ## New GIT Action for API
 

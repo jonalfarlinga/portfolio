@@ -8,6 +8,11 @@
        "repoUrl": {
             "type": "string"
         },
+        "storagePrefix": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 11
+        },
         "serverFarmResourceGroup": {
             "type": "string",
             "defaultValue": "[resourceGroup().name]"
@@ -18,7 +23,7 @@
         },
         "location": {
             "type": "string",
-            "defaultValue": "East US"
+            "defaultValue": "[resourceGroup().location]"
         },
         "branch": {
             "type": "string",
@@ -26,8 +31,8 @@
         }
     },
     "variables": {
+        "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
         "uniqueFunctionName": "[concat(parameters('apiPrefix'), uniqueString(resourceGroup().id))]",
-        "appStorageAccountName": "[concat(parameters('apiPrefix'), 'sto', uniqueString(resourceGroup().id))]",
         "oidcUserIdentityName": "[concat(parameters('apiPrefix'), '-oidc-identity')]",
         "hostingPlanName": "[concat(parameters('apiPrefix'), '-hosting-plan')]"
 
@@ -44,7 +49,7 @@
             },
             "dependsOn": [
                 "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
-                "[concat('Microsoft.Storage/storageAccounts/', variables('appStorageAccountName'))]"
+                "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStorageName'))]"
             ],
             "properties": {
                 "name": "[variables('uniqueFunctionName')]",
@@ -60,11 +65,11 @@
                         },
                         {
                             "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('appStorageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('appStorageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('uniqueStorageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
                         },
                         {
                             "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('appStorageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('appStorageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('uniqueStorageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
                         },
                         {
                             "name": "WEBSITE_CONTENTSHARE",
@@ -210,21 +215,64 @@
             }
         },
         {
-            "apiVersion": "2022-05-01",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('appStorageAccountName')]",
+            "apiVersion": "2021-09-01",
+            "name": "[variables('uniqueStorageName')]",
             "location": "[parameters('location')]",
-            "tags": {
-                "web": "portfolio"
-            },
             "sku": {
                 "name": "Standard_LRS"
             },
+            "kind": "StorageV2",
             "properties": {
-                "supportsHttpsTrafficOnly": true,
-                "minimumTlsVersion": "TLS1_2",
-                "defaultToOAuthAuthentication": true
+                "supportsHttpsTrafficOnly": true
             }
+        },
+        {
+            "name": "[concat(variables('uniqueStorageName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/tableServices",
+            "apiVersion": "2019-06-01",
+            "properties": {
+                "cors": {
+                    "corsRules": [
+                        {
+                            "allowedOrigins": [
+                                "*"
+                            ],
+                            "allowedMethods": [
+                                "PUT",
+                                "GET",
+                                "POST"
+                            ],
+                            "maxAgeInSeconds": 0,
+                            "exposedHeaders": [
+                                "*"
+                            ],
+                            "allowedHeaders": [
+                                "*"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName'))]"
+            ],
+            "resources": []
+        },
+        {
+            "name": "[concat(variables('uniqueStorageName'),'/default/counter')]",
+            "type": "Microsoft.Storage/storageAccounts/tableServices/tables",
+            "apiVersion": "2019-06-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/tableServices', variables('uniqueStorageName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageName'))]"
+            ]
         }
-    ]
+    ],
+    "outputs": {
+        "storageAccountName": {
+            "type": "object",
+            "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+        }
+    }
 }

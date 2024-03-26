@@ -9,6 +9,9 @@
         "endpointName": {
             "type": "string"
         },
+        "storageAccountName": {
+            "type": "string"
+        },
         "location": {
           "type": "string",
           "defaultValue": "[resourceGroup().location]"
@@ -44,15 +47,15 @@
         "properties": {
             "isHttpAllowed": true,
             "isHttpsAllowed": true,
-            "originHostHeader": "store2kjoo37i24nsw.z19.web.core.windows.net",
+            "originHostHeader": "[concat(parameters('storageAccountName'), '.z19.web.core.windows.net')]",
             "origins": [
               {
-                "name": "store2kjoo37i24nsw-z19-web-core-windows-net",
+                "name": "[concat(parameters('storageAccountName'), '-z19-web-core-windows-net')]",
                 "properties": {
-                  "hostName": "store2kjoo37i24nsw.z19.web.core.windows.net",
+                  "hostName": "[concat(parameters('storageAccountName'), '.z19.web.core.windows.net')]",
                   "httpPort": 80,
                   "httpsPort": 443,
-                  "originHostHeader": "store2kjoo37i24nsw.z19.web.core.windows.net",
+                  "originHostHeader": "[concat(parameters('storageAccountName'), '.z19.web.core.windows.net')]",
                   "priority": 1,
                   "weight": 1000,
                   "enabled": true
