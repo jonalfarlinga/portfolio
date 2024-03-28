@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure Functions: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python project to Azure Function App - bucklin-portfolio-fetch
+name: Build and deploy Python project to Azure Function App - apifunc2kjoo37i24nsw
 
 on:
   push:
@@ -79,6 +79,6 @@ jobs:
           app-name: 'apifunc2kjoo37i24nsw'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B9C859B8D5446829DF65AF0851ED6F1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_APIFUNC }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
