@@ -152,7 +152,7 @@ def resume_view():
           <p>
             <b>Programming Languages</b> | JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2
             <b>Front-End</b> | HTMX, React 18, Next.js, DOM manipulation
-            <b>Back-End</b> | Node, Django, FastAPI
+            <b>Back-End</b> | Node, Django, FastAPI, Flask
             <b>Other</b> | Git, CI/CD, Docker, Axure, Deployment, Authorization, Tableau
           </p>
           <hr/>
@@ -160,31 +160,37 @@ def resume_view():
           <p>
             <b>Backend Lead | Birddex | React, FastAPI, Python, PostgreSQL</b>
             <ul>
-              <li>Designed and implemented a card list display with mutable-length rows and interspersed with accordion lists</li>
-              <li>Built a backend including authorization using JWT and RESTful API and a frontend using React Redux and RTK Query</li>
-              <li>Developed collaboratively with a group, focusing on inclusivity and Agile methodologies</li>
-              <li>Deployed using a cloud provider on the backend and Gitlab Pages for the frontend.</li>
+              <li>Designed unit tests and debugged errors using Python unittest to ensure performant and reliable software</li>
+              <li>Optimized queries using FastAPI and PostgresQL to serve data to the front end app</li>
+              <li>Built a frontend using React to present a single-page application and Redux and RTK Query to minimize component coupling</li>
+              <li>Developed using Docker collaboratively with a group, focusing on inclusivity and Agile methodologies</li>
+              <li>Deployed using a cloud provider on the backend and Gitlab Pages for the frontend</li>
+              <li>Live Project: <a href=https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/>https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/</a></li>
             </ul>
           </p>
           <p>
             <b>Full Stack Developer | Calends-Online |  React, Python, FastAPI, Azure</b>
             <ul>
-              <li>Implemented React front-end using date, checkbox, and select inputs and dynamically visible HTML objects to build a class schedule template</li>
-              <li>Saved user time and effort when generating a syllabus by automating the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs</li>
+              <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
+              <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
+              <li>Employed Azure Web Apps to host the live application</li>
+              <li>Live Project: <a href=https://calends.azurewebsites.net/>https://calends.azurewebsites.net/</a></li>
             </ul>
           </p>
           <p>
             <b>Service Engineer | Dealer's Choice | React, Python, Django</b>
             <ul>
-              <li>Presented a user-friendly dashboard as a React-based one-page web application</li>
-              <li>Created stateful components to handle Autos, Errors, Sales, etc. and implemented filtering of Services by VIN to provide users with important information easily and quickly</li>
+              <li>Constructed microservices in Docker with a Django backend</li>
+              <li>Created stateful components to handle Autos, Errors, Sales, etc. with React</li>
+              <li>Implemented filtering of Services by VIN to provide users with important information easily and quickly</li>
             </ul>
           </p>
           <p>
             <b>Data Analyst | Health Outcomes for Horses | Python</b>
             <ul>
               <li>Processed and cleaned data using Python for data mining and manipulation to increase accuracy and performance of machine learning models</li>
-              <li>Used various Python libraries: Numpy, Pandas, Statistics and machine learning models: LightGBM, XGBoost, Sklearn to understand the data and predict individual outcome</li>
+              <li>Utilized Python libraries including Numpy, Pandas, & Statistics, along with machine learning models such as LightGBM, XGBoost, Sklearn to identify key trends, patterns, & predict individual outcomes on Kaggle</li>
+              <li>Notebook : <a href=https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition>https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition</a></li>
             </ul>
           </p>
           <hr/>
@@ -221,7 +227,7 @@ def resume_view():
           <p>
             <b>Field Engineer | Insituform Technologies</b>
             <ul>
-              <li>Designed standard operating procedures using production data and statistical methods, including Six Sigma</li>
+              <li>Enhanced operational efficiency & quality by 15 percent using statistical analysis to develop SOPs, resulting in a 15 percent reduction in errors</li>
               <li>Oversaw production and delivery operations for manufacturing plant earning $1 mil monthly revenue</li>
               <li>Preserved operational readiness and designed and implemented training for 15 manufacturing employees</li>
             </ul>
