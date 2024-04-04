@@ -136,7 +136,7 @@ def resume_view():
           <h2>RESUME</h2>
           <div id="pdf">
             <a
-              href="https://docs.google.com/document/d/e/2PACX-1vSSNXE-R7la0pai3Jh_bzLc4J9QyCuzxFsG_eXhVYeCTG-lMvJacr0lt882KFWwMlBfZBcHHoPN8I6p/pub"
+              href="https://docs.google.com/document/d/e/2PACX-1vQ4aSZPr_cZyIklKb0OnZ5DxxL9CBzsalh21WnwZjvsGdQvxb_EIoA0HbZNtq59ZUAUSM7rEKr50guI/pub"
               target="_blank"
               rel="noopener noreferrer"
               style="padding-right: 0;"
