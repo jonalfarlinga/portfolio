@@ -78,9 +78,9 @@ jobs:
         env:
           TABLE_CONNECTION_STRING: ${{ secrets.TABLE_CONNECTION_STRING }}
         with:
-          app-name: 'bucklin-portfolio-fetch'
+          app-name: 'apifunc2kjoo37i24nsw'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B9C859B8D5446829DF65AF0851ED6F1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_APIFUNC }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
