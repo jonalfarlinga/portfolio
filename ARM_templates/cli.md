@@ -16,5 +16,4 @@ az deployment group create `
   --name cdn-template `
   --resource-group bucklin-portfolio-RG `
   --template-file "ARM_templates/deploy_endpoint.json" `
-  --parameters profilePrefix="cdnprofile" endpointName="staticweb"
-
+  --parameters profilePrefix="cdnprofile" endpointName="staticweb" domainName="portfolio.denny-bucklin.net" storageAccountName="store2kjoo37i24nsw"
