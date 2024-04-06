@@ -1,5 +1,5 @@
 from api.projects import PROJECTS
-API_HOST = "https://bucklin-portfolio-fetch.azurewebsites.net/api"
+API_HOST = "https://apifunc2kjoo37i24nsw.azurewebsites.net/api"
 # flake8: noqa Linting disabled to allow for long lines in HTML
 
 def navlink(active: str):
