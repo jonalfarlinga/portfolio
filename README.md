@@ -53,6 +53,8 @@ I added a unit test for the Azure Tables `increment` function and I wrote a Gith
 
 - I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I combined the storage account and endpoint into one template since the function app is dependent on a storage account.
 
+- When I deployed the Function App using ARM templates, the new app didn't recognize my functions. I struggled with this for a long time before turning to Stack Overflow. It turns out the default template for deploying function apps disables SCM credentials, but the default Github Action deploys using SCM. [My Stack Overflow Question.](https://stackoverflow.com/questions/78281838/when-i-deploy-my-function-app-repository-to-a-new-app-it-doesnt-recognize-any)
+
 ## Author and acknowledgment
 This project is written by and for Denny Bucklin.
 
