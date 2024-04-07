@@ -247,9 +247,6 @@ def vlog_view():
     return navlink("vlog") + """
       <div>
         <h2>VIDEO INTRODUCTION</h2>
-        <video controls>
-          <source src="./vid/dbucklin_pitch.mkv" type="video/mp4">
-        </video>
         <h2 class="mb-3">DEMOS</h2>
         <div>
           <h4>LeetCode75</h4>

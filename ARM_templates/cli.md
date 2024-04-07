@@ -6,7 +6,7 @@ az deployment group create `
   --name api-func `
   --resource-group bucklin-portfolio-RG `
   --template-file "ARM_templates/deploy_function_api.json" `
-  --parameters repoUrl="https://github.com/jonalfarlinga/portfolio" apiPrefix="apifunc" storagePrefix="store"
+  --parameters repoUrl="https://github.com/jonalfarlinga/portfolio" apiPrefix="apifunc" storagePrefix="store" domainName="portfolio.denny-bucklin.net"
 
 After deploying, navigate to the storage account on Azure Portal and enable Static websites.
 

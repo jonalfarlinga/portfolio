@@ -1,6 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
+    "contentVersion": "2.0.0.0",
     "parameters": {
         "apiPrefix": {
             "type": "string"
@@ -16,6 +16,9 @@
         "serverFarmResourceGroup": {
             "type": "string",
             "defaultValue": "[resourceGroup().name]"
+        },
+        "domainName": {
+            "type": "string"
         },
         "subscriptionId": {
             "type": "string",
@@ -76,9 +79,11 @@
                             "value": "bucklin-functionsbbd4"
                         }
                     ],
+                    "httpsOnly": true,
                     "cors": {
                         "allowedOrigins": [
-                            "https://portal.azure.com"
+                            "https://portal.azure.com",
+                            "[concat('https://', parameters('domainName'))]"
                         ]
                     },
                     "use32BitWorkerProcess": false,
@@ -97,7 +102,7 @@
                     "apiVersion": "2022-09-01",
                     "name": "[concat(variables('uniqueFunctionName'), '/scm')]",
                     "properties": {
-                        "allow": false
+                        "allow": true
                     },
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/Sites', variables('uniqueFunctionName'))]"
