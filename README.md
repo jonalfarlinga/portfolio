@@ -41,12 +41,16 @@ Finally, I created ARM templates to deploy the necessary resources.
 ### Steps to re-deploy:
 
 1. Build the index and python functions in a repository on Github. The `index.html` should be in `/public`, the `function_app.py` should be in root.
+2. Start a resource group. The CLI commands assume my subscription, but can be overridden for a new subscription.
 2. Register a custom domain name.
 3. Run the CLI command for `deploy_function_api.json`
 4. Run the CLI command for `deploy_endpoint.json`<br>[CLI commands](./ARM_templates/cli.md)
-5. Create a CNAME connecting the custom domain and CDN Endpoint.
-6. Open CDN Endpoint in Azure Portal and add a custom domain, linking back to the CNAME.
-7. Push the repository to `main` and alloy the Actions to run.
+5. Open the storage account in Azure Portal and enable static websites.
+6. Create a CNAME connecting the custom domain and CDN Endpoint.
+7. Open CDN Endpoint in Azure Portal and add a custom domain, linking back to the CNAME.
+8. Enable HTTPS on the custom domain.
+9. Upload new Publish profile from Function App to Github Secrets
+10. Push the repository to `main` and alloy the Actions to run.
 
 ![App diagram](./public/img/App_diagram.png)
 

@@ -186,7 +186,6 @@
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
                 "publishingUsername": "$apifunc2kjoo37i24nsw",
-                "scmType": "GitHubAction",
                 "use32BitWorkerProcess": false,
                 "webSocketsEnabled": false,
                 "alwaysOn": false,
