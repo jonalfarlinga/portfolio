@@ -1,16 +1,17 @@
 # My Portfolio
 
-1. [The Cloud Resume Challenge](#the-cloud-resume-challenge)
-2. [Tech Stack](#tech-stack)
-3. [The Work](#the-work)
-4. [The Experience](#the-experience)
-5. [Author and Acknowledgment](#author-and-acknowledgment)
-6. [Dev Roadmap](#dev-roadmap)
+- [The Cloud Resume Challenge](#the-cloud-resume-challenge)
+- [Tech Stack](#tech-stack)
+- [The Work](#the-work)
+  - [Steps to re-deploy](#steps-to-re-deploy)
+- [The Experience](#the-experience)
+- [Author and Acknowledgment](#author-and-acknowledgment)
+- [Dev Roadmap](#dev-roadmap)
 
 ## The Cloud Resume Challenge
 This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
 
-The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](portolio.denny-bucklin.net).
+The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portolio.denny-bucklin.net).
 
 
 ## Tech Stack
@@ -35,7 +36,24 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
+Finally, I created ARM templates to deploy the necessary resources.
+
+### Steps to re-deploy:
+
+1. Build the index and python functions in a repository on Github. The `index.html` should be in `/public`, the `function_app.py` should be in root.
+2. Start a resource group. The CLI commands assume my subscription, but can be overridden for a new subscription.
+2. Register a custom domain name.
+3. Run the CLI command for `deploy_function_api.json`
+4. Run the CLI command for `deploy_endpoint.json`<br>[CLI commands](./ARM_templates/cli.md)
+5. Open the storage account in Azure Portal and enable static websites.
+6. Create a CNAME connecting the custom domain and CDN Endpoint.
+7. Open CDN Endpoint in Azure Portal and add a custom domain, linking back to the CNAME.
+8. Enable HTTPS on the custom domain.
+9. Upload new Publish profile from Function App to Github Secrets
+10. Push the repository to `main` and alloy the Actions to run.
+
 ![App diagram](./public/img/App_diagram.png)
+
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
 
@@ -47,7 +65,7 @@ I added a unit test for the Azure Tables `increment` function and I wrote a Gith
 
 - Azure Functions Python documentation leaves a lot to be desired. I couldn't get the CORS properties to work in the portal, which was a common complaint online. Instead I had to make my function return its CORS header explicitly. It currently returns an allowance for all CORS hosts because neither the custom domain nor the storage endpoint were allowing the POST request to complete. I also haven't been able to discover how to restrict access methods on functions, although I believe I can cause a function to respond differently to different request methods.
 
-- I have to be careful about the products I use from Azure. The wrong subscription can add up quickly.
+- I have to be careful about the products I use from Azure. The wrong subscription can add up costs quickly.
 
 - I struggled to understand ARM templates, but I was able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
 
@@ -67,7 +85,9 @@ The project follows the path laid out in **The Cloud Resume Challenge Guidebook*
 
 - I want to add a testimonials page
 
-- I plan to add a tab with my experiences building this project
+- I plan to add a tab with my experiences building this project (add a blog)
+
+- I want to use blob storage and table to create a database for blogs and for projects.
 
 - Updates for project tags
   - [X] Technical Link
