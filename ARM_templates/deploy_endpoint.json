@@ -1,6 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "2.0.0.0",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "profilePrefix": {
           "type": "string"
@@ -18,9 +18,6 @@
         "tags": {
           "type": "object",
           "defaultValue": {"web":"profile"}
-        },
-        "domainName": {
-            "type": "string"
         }
     },
     "variables": {
@@ -40,12 +37,12 @@
         "tags": "[parameters('tags')]"
       },
       {
-      "type": "microsoft.cdn/profiles/endpoints",
-      "apiVersion": "2021-06-01",
-      "tags": "[parameters('tags')]",
-      "dependsOn": [
-        "[concat('Microsoft.Cdn/profiles/', variables('uniqueCDNName'))]"
-      ],
+        "type": "microsoft.cdn/profiles/endpoints",
+        "apiVersion": "2021-06-01",
+        "tags": "[parameters('tags')]",
+        "dependsOn": [
+          "[concat('Microsoft.Cdn/profiles/', variables('uniqueCDNName'))]"
+        ],
         "name": "[concat(variables('uniqueCDNName'),'/', variables('uniqueEndpointName'))]",
         "location": "[parameters('location')]",
         "properties": {
@@ -112,21 +109,6 @@
           ],
           "queryStringCachingBehavior": "IgnoreQueryString"
         }
-      },
-      {
-            "type": "Microsoft.Cdn/profiles/endpoints/customdomains",
-            "apiVersion": "2023-07-01-preview",
-            "name": "[concat(variables('uniqueCDNName'), '/staticweb2kjoo37i24nsw/', parameters('domainName'))]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Cdn/profiles/endpoints', variables('uniqueCDNName'), 'staticweb2kjoo37i24nsw')]"
-            ],
-            "properties": {
-                "hostName": "[parameters('domainName')]",
-                "tlsSettings": {
-                    "certificateType": "ManagedCertificate",
-                    "minimumTlsVersion": "TLS12"
-                }
-            }
-        }
+      }
     ]
 }

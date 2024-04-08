@@ -35,7 +35,19 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
+Finally, I created ARM templates to deploy the necessary resources.
+
+#### Steps to redploy:
+
+1. Build the index and python functions in a repository on Github. The `index.html` should be in `/public`, the `function_app.py` should be in root.
+2. Register a custom domain name.
+3. Run the CLI `commands for deploy_endpoint.json` and `deploy_function_api.json`
+4. Create a CNAME connecting the custom domain and CDN Endpoint.
+5. Open CDN Endpoint in Azure Portal and add a custom domain, linking back to the CNAME.
+6. Push the repository to `main` and alloy the Actions to run.
+
 ![App diagram](./public/img/App_diagram.png)
+
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
 
