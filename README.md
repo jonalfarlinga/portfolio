@@ -11,18 +11,18 @@
 ## The Cloud Resume Challenge
 This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
 
-The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portolio.denny-bucklin.net).
+The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portfolio.denny-bucklin.net).
 
 
 ## Tech Stack
 #### HTMX, CSS(Bootstrap), Python(Azure Functions), Azure Tables
-#### Frontend
+### Frontend
 The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
-#### Backend
+### Backend
 I use **HTMX** and a **Python** backend to serve the separate page views.
-#### Hosting Service
+### Hosting Service
 The backend API is served from an **Azure Functions App**
-#### Database
+### Database
 The backend interacts with an **Azure Table** in blob storage to get and update a continuous count of page loads.
 
 ## The Work
