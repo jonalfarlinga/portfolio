@@ -136,7 +136,7 @@ def resume_view():
           <h2>RESUME</h2>
           <div id="pdf">
             <a
-              href="https://docs.google.com/document/d/e/2PACX-1vQ4aSZPr_cZyIklKb0OnZ5DxxL9CBzsalh21WnwZjvsGdQvxb_EIoA0HbZNtq59ZUAUSM7rEKr50guI/pub"
+              href="https://portfolio.denny-bucklin.net/docs/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style="padding-right: 0;"
@@ -150,10 +150,10 @@ def resume_view():
           <hr/>
           <h4>Technical Skills</h4>
           <p>
-            <b>Programming Languages</b> | JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2
+            <b>Programming Languages</b> | JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2, Mongosh
             <b>Front-End</b> | HTMX, React 18, Next.js, DOM manipulation
             <b>Back-End</b> | Node, Django, FastAPI, Flask
-            <b>Other</b> | Git, CI/CD, Docker, Axure, Deployment, Authorization, Tableau
+            <b>Other</b> | Git, CI/CD, Docker, Azure, Deployment, Authorization, Tableau
           </p>
           <hr/>
           <h4>Revelant Projects</h4>
@@ -174,7 +174,7 @@ def resume_view():
               <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
               <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
               <li>Employed Azure Web Apps to host the live application</li>
-              <li>Live Project: <a href=https://calends.azurewebsites.net/>https://calends.azurewebsites.net/</a></li>
+              <li>Live Project: <a href=https://calends.azureedge.net/>https://calends.azureedge.net/</a></li>
             </ul>
           </p>
           <p>
@@ -224,6 +224,14 @@ def resume_view():
           </p>
           <hr/>
           <h4>Professional Experience</h4>
+          <p>
+            <b>AI Trainer | Freelance</b>
+            <ul>
+              <li>Analyzed language model outputs to improve the efficacy of end-user interactions with AI</li>
+              <li>Developed and refined coding challenges for AI chatbots in Python and Java</li>
+              <li>Authored high-quality solutions and explanations for complex coding problems, ensuring clear understanding and application of programming concepts in AI model development</li>
+            </ul>
+          </p>
           <p>
             <b>Field Engineer | Insituform Technologies</b>
             <ul>
