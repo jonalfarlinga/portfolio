@@ -52,8 +52,6 @@ Finally, I created ARM Templates for deploying the necessary resources automatic
 9. Upload new Publish profile from Function App to Github Secrets
 10. Push the repository to `main` and alloy the Actions to run.
 
-Finally, I created ARM Templates for deploying the necessary resources automatically. There were some settings that could not be set by template, and I created a step-by-step process for redploying the site.
-
 ### Azure Resource Diagram
 ![Azure resources diagram](./public/img/App_diagram.png)
 
