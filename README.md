@@ -52,7 +52,11 @@ Finally, I created ARM templates to deploy the necessary resources.
 9. Upload new Publish profile from Function App to Github Secrets
 10. Push the repository to `main` and alloy the Actions to run.
 
-![App diagram](./public/img/App_diagram.png)
+Finally, I created ARM Templates for deploying the necessary resources automatically. There were some settings that could not be set by template, and I created a step-by-step process for redploying the site.
+
+### Azure Resource Diagram
+![Azure resources diagram](./public/img/App_diagram.png)
+
 
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
@@ -67,7 +71,7 @@ Finally, I created ARM templates to deploy the necessary resources.
 
 - I have to be careful about the products I use from Azure. The wrong subscription can add up costs quickly.
 
-- I struggled to understand ARM templates, but I was able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
+- I struggled to understand ARM templates, but I was readily able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
 
 - I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I combined the storage account and endpoint into one template since the function app is dependent on a storage account.
 
