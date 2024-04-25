@@ -36,9 +36,9 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
-Finally, I created ARM templates to deploy the necessary resources.
+Finally, I created ARM Templates for deploying the necessary resources automatically. There were some settings that could not be set by template, and I created a step-by-step process for redploying the site.
 
-### Steps to re-deploy:
+### Steps to re-deploy
 
 1. Build the index and python functions in a repository on Github. The `index.html` should be in `/public`, the `function_app.py` should be in root.
 2. Start a resource group. The CLI commands assume my subscription, but can be overridden for a new subscription.
@@ -51,8 +51,6 @@ Finally, I created ARM templates to deploy the necessary resources.
 8. Enable HTTPS on the custom domain.
 9. Upload new Publish profile from Function App to Github Secrets
 10. Push the repository to `main` and alloy the Actions to run.
-
-Finally, I created ARM Templates for deploying the necessary resources automatically. There were some settings that could not be set by template, and I created a step-by-step process for redploying the site.
 
 ### Azure Resource Diagram
 ![Azure resources diagram](./public/img/App_diagram.png)
@@ -73,7 +71,7 @@ Finally, I created ARM Templates for deploying the necessary resources automatic
 
 - I struggled to understand ARM templates, but I was readily able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
 
-- I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I combined the storage account and endpoint into one template since the function app is dependent on a storage account.
+- I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I tried to connect the function app with the pre-existing storage account, but got the error "storage account already exists." I eventually solved the issue by conbining the storage account and endpoint into one template since the function app is dependent on a storage account.
 
 - When I deployed the Function App using ARM templates, the new app didn't recognize my functions. I struggled with this for a long time before turning to Stack Overflow. It turns out the default template for deploying function apps disables SCM credentials, but the default Github Action deploys using SCM. [My Stack Overflow Question.](https://stackoverflow.com/questions/78281838/when-i-deploy-my-function-app-repository-to-a-new-app-it-doesnt-recognize-any)
 
