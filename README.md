@@ -11,18 +11,18 @@
 ## The Cloud Resume Challenge
 This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
 
-The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portolio.denny-bucklin.net).
+The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portfolio.denny-bucklin.net).
 
 
 ## Tech Stack
 #### HTMX, CSS(Bootstrap), Python(Azure Functions), Azure Tables
-#### Frontend
+### Frontend
 The main page is built with **HTML** and **CSS**, utilizing Bootstrap for styling.
-#### Backend
+### Backend
 I use **HTMX** and a **Python** backend to serve the separate page views.
-#### Hosting Service
+### Hosting Service
 The backend API is served from an **Azure Functions App**
-#### Database
+### Database
 The backend interacts with an **Azure Table** in blob storage to get and update a continuous count of page loads.
 
 ## The Work
@@ -36,9 +36,9 @@ Next, I needed to upload a set of functions to an Azure Function App. I found th
 
 I added a unit test for the Azure Tables `increment` function and I wrote a Github Workflows to test and push project changes to the azure storage account's static web page.
 
-Finally, I created ARM templates to deploy the necessary resources.
+Finally, I created ARM Templates for deploying the necessary resources automatically. There were some settings that could not be set by template, and I created a step-by-step process for redploying the site.
 
-### Steps to re-deploy:
+### Steps to re-deploy
 
 1. Build the index and python functions in a repository on Github. The `index.html` should be in `/public`, the `function_app.py` should be in root.
 2. Start a resource group. The CLI commands assume my subscription, but can be overridden for a new subscription.
@@ -52,7 +52,9 @@ Finally, I created ARM templates to deploy the necessary resources.
 9. Upload new Publish profile from Function App to Github Secrets
 10. Push the repository to `main` and alloy the Actions to run.
 
-![App diagram](./public/img/App_diagram.png)
+### Azure Resource Diagram
+![Azure resources diagram](./public/img/App_diagram.png)
+
 
 ## The Experience
 - I decided to learn a new technology with this project: **HTMX**. It was a lot of fun, even though I've only scratched the surface. My first real hurdle was was trying to change the `#content` div and the `nav` items with one request, but once I discovered the OOB swap, it was a breeze.
@@ -67,9 +69,9 @@ Finally, I created ARM templates to deploy the necessary resources.
 
 - I have to be careful about the products I use from Azure. The wrong subscription can add up costs quickly.
 
-- I struggled to understand ARM templates, but I was able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
+- I struggled to understand ARM templates, but I was readily able to CI the frontend using Github actions. I don't even have to create a separate repository. When I push to main, one workflow pushes to Azure Functions, and another uploads the `public/` folder to Azure Storage `$web`.
 
-- I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I combined the storage account and endpoint into one template since the function app is dependent on a storage account.
+- I successfully deployed a storage account and endpoint using ARM templates, but the Function app gives me trouble. I tried to connect the function app with the pre-existing storage account, but got the error "storage account already exists." I eventually solved the issue by conbining the storage account and endpoint into one template since the function app is dependent on a storage account.
 
 - When I deployed the Function App using ARM templates, the new app didn't recognize my functions. I struggled with this for a long time before turning to Stack Overflow. It turns out the default template for deploying function apps disables SCM credentials, but the default Github Action deploys using SCM. [My Stack Overflow Question.](https://stackoverflow.com/questions/78281838/when-i-deploy-my-function-app-repository-to-a-new-app-it-doesnt-recognize-any)
 

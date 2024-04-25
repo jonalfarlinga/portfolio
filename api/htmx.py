@@ -254,7 +254,6 @@ def resume_view():
 def vlog_view():
     return navlink("vlog") + """
       <div>
-        <h2>VIDEO INTRODUCTION</h2>
         <h2 class="mb-3">DEMOS</h2>
         <div>
           <h4>LeetCode75</h4>
