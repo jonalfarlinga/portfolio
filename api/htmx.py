@@ -154,8 +154,11 @@ def resume_view():
           <style>#pdf { text-align: right; display: block; margin-right: 2em }</style>
           <h3>Full Stack Developer</h3>
           <h6>Phone: (562) 619-6459 |
-            <a href="mailto:dennis.bucklin@gmail.com"
-          >dennis.bucklin@gmail.com</a> | San Marcos, TX </h6>
+            <a
+              href="mailto:dennis.bucklin@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >dennis.bucklin@gmail.com</a> | San Marcos, TX </h6>
           <hr/>
           <h4>Technical Skills</h4>
           <p>
@@ -282,27 +285,38 @@ def vlog_view():
     """
 
 
-def blog_view():
+def news_view():
     rows = ""
     for blog in BLOGS:
         rows += f"""
           <tr>
-            <td><a href="{blog['link']}">{blog['title']}</a></td>
+            <td><a href="{API_HOST}/blog?{blog['title']}">{blog['title']}</a></td>
             <td>{blog['topics']}</td>
             <td>{blog['date']}</td>
           </tr>
         """
-    return """
+    return f"""
         <h1>Blog List</h1>
-
         <table>
           <tr>
             <th>Title</th>
             <th>Topics</th>
-            <th>Topics</th>
+            <th>Date</th>
           </tr>
-          <tr>
-            <td><a href="">Building the Cloud Resume</a></td>
-          </tr>
+          {rows}
         </table>
+    """
+
+def blog_view(title):
+    data = {}
+    for blog in BLOGS:
+        if blog.get('title') == title:
+            data = blog
+    return f"""
+          <a
+            hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
+            hx-target="#blog-content"
+          <h1>{title}</h1>
+          <h5 class="mb-5">{data.get('date')} || Topics: {data.get('topics')}</h5>
+          <p>{data.get('content')}</p>
     """

@@ -36,7 +36,14 @@ def get_vlog(req: func.HttpRequest) -> func.HttpResponse:
     return htmx.vlog_view()
 
 
+@app.function_name(name="news")
+@app.route(route="news")
+def get_blog_timeline(req: func.HttpRequest) -> func.HttpResponse:
+    return htmx.news_view()
+
+
 @app.function_name(name="blog")
 @app.route(route="blog")
-def get_blog_timeline(req: func.HttpRequest) -> func.HttpResponse:
-    return htmx.blog_view()
+def get_blog(req: func.HttpRequest) -> func.HttpResponse:
+    title = req.params.get('title')
+    return htmx.blog_view(title)
