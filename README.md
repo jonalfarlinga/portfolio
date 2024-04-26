@@ -9,7 +9,7 @@
 - [Dev Roadmap](#dev-roadmap)
 
 ## The Cloud Resume Challenge
-This Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
+The Cloud Resume Challenge requires the developer to deploy a frontend and backend using Github Actions and the Azure Cloud. When complete, the full pipeline is automated and keeps the page updated when new code is pushed to the repository.
 
 The root of this repository contains the `function_app` for my Azure Functions API and the rest of the module files are in `/api`. The `/public` directory contains the index and `/dev` contains the backend dev environment for my this project. The live portfolio/resume can be found [here](https://portfolio.denny-bucklin.net).
 
