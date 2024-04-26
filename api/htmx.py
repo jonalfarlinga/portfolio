@@ -174,7 +174,7 @@ def resume_view():
               <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
               <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
               <li>Employed Azure Web Apps to host the live application</li>
-              <li>Live Project: <a href=https://calends.azureedge.net/>https://calends.azureedge.net/</a></li>
+              <li>Live Project: <a href=https://calends.proficientdr.com>https://calends.proficientdr.com</a></li>
             </ul>
           </p>
           <p>
