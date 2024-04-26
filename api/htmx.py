@@ -165,7 +165,7 @@ def resume_view():
               <li>Built a frontend using React to present a single-page application and Redux and RTK Query to minimize component coupling</li>
               <li>Developed using Docker collaboratively with a group, focusing on inclusivity and Agile methodologies</li>
               <li>Deployed using a cloud provider on the backend and Gitlab Pages for the frontend</li>
-              <li>Live Project: <a href=https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/>https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/</a></li>
+              <li>Live Project: <a href=https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/>https://canarydevs.gitlab.io/birddex/</a></li>
             </ul>
           </p>
           <p>
@@ -174,7 +174,7 @@ def resume_view():
               <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
               <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
               <li>Employed Azure Web Apps to host the live application</li>
-              <li>Live Project: <a href=https://calends.azureedge.net/>https://calends.azureedge.net/</a></li>
+              <li>Live Project: <a href=https://calends.proficientdr.com>https://calends.proficientdr.com</a></li>
             </ul>
           </p>
           <p>
