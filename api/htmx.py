@@ -1,4 +1,5 @@
 from api.projects import PROJECTS
+from api.blogs import BLOGS
 API_HOST = "https://apifunc2kjoo37i24nsw.azurewebsites.net/api"
 # flake8: noqa Linting disabled to allow for long lines in HTML
 
@@ -36,6 +37,14 @@ def navlink(active: str):
             hx-target="#content"
             hx-swap-oob="true"
         >Video Demos</button>
+        <button
+            class="navlink"
+            id="blog"
+            hx-get="https://portfolio.denny-bucklin.net/blog"
+            hx-trigger="click"
+            hx-target="html"
+            hx-swap="outerHTML"
+        >Blog</button>
     """
 
 
@@ -270,4 +279,30 @@ def vlog_view():
           >Video Demo</a>
         </div>
       </div>
+    """
+
+
+def blog_view():
+    rows = ""
+    for blog in BLOGS:
+        rows += f"""
+          <tr>
+            <td><a href="{blog['link']}">{blog['title']}</a></td>
+            <td>{blog['topics']}</td>
+            <td>{blog['date']}</td>
+          </tr>
+        """
+    return """
+        <h1>Blog List</h1>
+
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Topics</th>
+            <th>Topics</th>
+          </tr>
+          <tr>
+            <td><a href="">Building the Cloud Resume</a></td>
+          </tr>
+        </table>
     """
