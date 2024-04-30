@@ -48,7 +48,7 @@
             "kind": "functionapp,linux",
             "location": "[parameters('location')]",
             "tags": {
-                "web": "portfolio"
+                "product": "portfolio"
             },
             "dependsOn": [
                 "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
@@ -162,7 +162,7 @@
                 "[resourceId('Microsoft.Web/sites', variables('uniqueFunctionName'))]"
             ],
             "tags": {
-                "web": "portfolio"
+                "product": "portfolio"
             },
             "properties": {
                 "numberOfWorkers": 1,
@@ -294,7 +294,7 @@
             "location": "[parameters('location')]",
             "kind": "linux",
             "tags": {
-                "web": "portfolio"
+                "product": "portfolio"
             },
             "dependsOn": [],
             "properties": {
