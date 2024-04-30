@@ -40,7 +40,7 @@ def navlink(active: str):
         <button
             class="navlink"
             id="blog"
-            hx-get="https://portfolio.denny-bucklin.net/api/blog"
+            hx-get="https://portfolio.denny-bucklin.net/blog.html"
             hx-trigger="click"
             hx-target="html"
             hx-swap="outerHTML"
