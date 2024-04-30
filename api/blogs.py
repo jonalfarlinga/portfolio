@@ -1,7 +1,7 @@
 # flake8: noqa
 BLOGS = [
     {
-        "title": "Building the Cloud Resume",
+        "title": "Building my Cloud Portfolio",
         "date": "April 30, 2024",
         "topics": "Resume, Portfolio, Azure, CI/CD, Python, HTMX, CSS",
         "content": """
