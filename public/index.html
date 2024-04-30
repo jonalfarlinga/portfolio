@@ -11,12 +11,12 @@
   <body class="container-fluid portfolio">
     <div class="row p-0 m-0">
       <nav class="d-flex flex-column col-2 p-4">
-        <hr class=""/>
+        <hr />
         <img src="./img/Ulfunnar_Reserve.jpg" class="row logo" alt="logo"/>
         <h6 class="text-warning">
           <div id="page-load" hx-post="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/count" hx-trigger="load" hx-target=""></div>
         </h6>
-        <hr class=""/>
+        <hr />
         <button
           class="navlink nl-active"
           id="about"
@@ -33,7 +33,15 @@
           class="navlink"
           id="vlog"
         >Video Demos</button>
-        <p class="mt-auto text-warning"><a href="https://github.com/jonalfarlinga/portfolio" class="gitlink">Web Portfolio</a> Github repo</p>
+        <button
+            class="navlink"
+            id="blog"
+            hx-get="https://portfolio.denny-bucklin.net/blog"
+            hx-trigger="click"
+            hx-target="html"
+            hx-swap="outerHTML"
+        >Blogs</button>
+        <p class="mt-auto text-warning"><a href="https://github.com/jonalfarlinga/portfolio" target="_blank" rel="noopener noreferrer" class="gitlink">Web Portfolio</a> Github repo</p>
       </nav>
       <main class="container-fluid col p-0 m-0">
         <header class="d-flex flex-column justify-content-center m-0 p-5">

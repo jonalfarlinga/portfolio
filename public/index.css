@@ -186,6 +186,16 @@ a:hover {
     border: double 5px #f2d8c4;
 }
 
+
+#blog-content {
+    background-color:#736f79;
+    overflow: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #736f79 #f2d8c4;
+    height: 100vh;
+    border: double 5px #f2d8c4;
+}
+
 #headshot {
     background: radial-gradient(ellipse at center,  #F2d8c4 0%,#F2d8c4 47%,#F2d8c4 47%,#F2d8c4 71%, #0d0d0d00 23%);
     float:left;
