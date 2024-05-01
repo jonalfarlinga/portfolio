@@ -376,6 +376,8 @@ def resume_view():
         </div>
       </div>
     """
+    )
+
 
 def vlog_view():
     return (
@@ -400,6 +402,7 @@ def vlog_view():
         </div>
       </div>
     """
+    )
 
 
 def news_view():

@@ -5,7 +5,5 @@
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-action.json": "file:///c%3A/Users/denni/code/projects/portfolio/.github/main_func_api_deploy.yml"
-    }
+    "azureFunctions.projectLanguageModel": 2
 }
