@@ -139,6 +139,14 @@ video {
     object-fit: scale-down;
 }
 
+.bloglink {
+    padding-right: none;
+}
+
+.blog-content {
+    height: 100vh !important;
+}
+
 /* Global tags */
 
 p {
@@ -191,16 +199,6 @@ a:hover {
     scrollbar-width: thin;
     scrollbar-color: #736f79 #f2d8c4;
     height: 60vh;
-    border: double 5px #f2d8c4;
-}
-
-
-#blog-content {
-    background-color:#736f79;
-    overflow: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: #736f79 #f2d8c4;
-    height: 100vh;
     border: double 5px #f2d8c4;
 }
 

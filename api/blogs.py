@@ -13,11 +13,12 @@ BLOGS = [
 
 <img src="https://cloudresumechallenge.dev/images/multicloud-bundle.gif" style="float: right; width: 35vh" />
 
-<p>The <a href="#cite_cloud_resume">Cloud Resume Challenge</a> was developed by Forrest Brazeal as a litmus test for prospective cloud developers. It focuses on the skills necessary to be a useful contributor to a company operating on the cloud. Not only is it a test of the dev's ability to build a full-stack app, but can you deploy that app in a scalable way, and can you apply those skills to a prospective employer's problem? The prospective cloud developer is pushed to create a resume that is rendered by a full-stack application running in the cloud.</p>
+<p>The <a class="bloglink" href="#cite_cloud_resume">Cloud Resume Challenge</a> was developed by Forrest Brazeal as a litmus test for prospective cloud developers. It focuses on the skills necessary to be a useful contributor to a company operating on the cloud. Not only is it a test of the dev's ability to build a full-stack app, but can you deploy that app in a scalable way, and can you apply those skills to a prospective employer's problem? The prospective cloud developer is pushed to create a resume that is rendered by a full-stack application running in the cloud.</p>
 
 <p>I began the project with the goal of building a resume, a portfolio, and an in-demand skill set along with a product that I could show on LinkedIn and Github. As soon as I started building the HTML, I knew this project would hold my attention long after I could show employers my resume. And once I had deployed, I was excited to learn everything that Azure could do for me. I suddenly wanted to deploy everything I built. I like programming. I love building useful tools that I can share with others.</p>
 
 <h3>Parts of the Challenge</h3>
+
 <ul>
   <li><b>Front-End:</b> Create the Resume in HTML/CSS</li>
   <li><b>Back-End:</b> Set up source control and visitor counter</li>
@@ -54,7 +55,7 @@ BLOGS = [
 
 <img src="img/App_diagram.png" class="blog-img" />
 
-<p>The second obstacle came about because the default ARM template for function apps deploys with run-from-package activated. To create the app, I used the ARM template provided by the Create Function App dialog, then I used the Github Action provided in the portal to upload code to the app. The data was successfully uploaded, but the functions were not recognized. A fellow dev from <a href="#cite_stack_ov_question">Stack Overflow</a> assisted me with troubleshooting, and determined that the Supply Chain Management (SCM) Basic Auth setting was off, and <code>WEBSITE_RUN_FROM_PACKAGE</code> should not be set. This is because the VSCode extension uses remote build, but on consumption plans running Linux, remote builds aren't performed if we use run-from-package.<a href="#cite_dep_tech">See here for more info.</a></p>
+<p>The second obstacle came about because the default ARM template for function apps deploys with run-from-package activated. To create the app, I used the ARM template provided by the Create Function App dialog, then I used the Github Action provided in the portal to upload code to the app. The data was successfully uploaded, but the functions were not recognized. A fellow dev from <a class="bloglink" href="#cite_stack_ov_question">Stack Overflow</a> assisted me with troubleshooting, and determined that the Supply Chain Management (SCM) Basic Auth setting was off, and <code>WEBSITE_RUN_FROM_PACKAGE</code> should not be set. This is because the VSCode extension uses remote build, but on consumption plans running Linux, remote builds aren't performed if we use run-from-package.<a class="bloglink" href="#cite_dep_tech">See here for more info.</a></p>
 
 <h3>Reflections</h3>
 
@@ -68,7 +69,7 @@ BLOGS = [
 
 <p>I am certainly glad I took on this project. When I started, I looked at deployment as a necessary, but boring, aspect of creating a working project. How wrong I was. I loved diving into each aspect of the project. While I struggled at building ARM templates and got frustrated with connecting the CDN, these were the kind of struggles that made me want to persevere and win, which I ultimately did! </p>
 
-<p>I learned about the structure of cloud platforms and Azure specifically. I learned to navigate Microsoft's arcane documentation sites which made it frustrating to find the information I wanted (although their <a href="#cite_function_qs">quickstarts</a> and tutorials are pretty nice). And I learned to create Infrastructure as Code solutions. I can't wait to see what I'll start building next.</p>
+<p>I learned about the structure of cloud platforms and Azure specifically. I learned to navigate Microsoft's arcane documentation sites which made it frustrating to find the information I wanted (although their <a class="bloglink" href="#cite_function_qs">quickstarts</a> and tutorials are pretty nice). And I learned to create Infrastructure as Code solutions. I can't wait to see what I'll start building next.</p>
 
 <p>If you found this post as a fellow up-and-coming dev, I encourage you to host your resume or portfolio on the cloud. It is incredibly fun and educational. If you arrived here as a potential employer, please reach out! I would love to discuss how my skills can help your company achieve its goals.</p>
 
@@ -76,16 +77,16 @@ BLOGS = [
 <h3>References</h3>
 
 <p>
-  <a id="cite_resume_challenge" href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener noreferrer"
+  <a class="bloglink" id="cite_resume_challenge" href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener noreferrer"
   >Cloud Resume Challenge</a>
   <br>
-  <a id="cite_function_qs" href="https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python" target="_blank" rel="noopener noreferrer"
+  <a class="bloglink" id="cite_function_qs" href="https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python" target="_blank" rel="noopener noreferrer"
   >Quickstart: Create a function in Azure with Python using Visual Studio Code</a>
   <br>
-  <a id="cite_dep_tech" href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies?tabs=windows#key-concepts" target="_blank" rel="noopener noreferrer"
+  <a class="bloglink" id="cite_dep_tech" href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies?tabs=windows#key-concepts" target="_blank" rel="noopener noreferrer"
   >Deployment technologies in Azure Functions</a>
   <br>
-  <a id="cite_stack_ov_question" href="https://stackoverflow.com/questions/78281838/when-i-deploy-my-function-app-repository-to-a-new-app-it-doesnt-recognize-any" target="_blank" rel="noopener noreferrer"
+  <a class="bloglink" id="cite_stack_ov_question" href="https://stackoverflow.com/questions/78281838/when-i-deploy-my-function-app-repository-to-a-new-app-it-doesnt-recognize-any" target="_blank" rel="noopener noreferrer"
   >Question: When I deploy my function app repository to a new app, it doesn't recognize any functions Azure/Python/FunctionApp</a>
 </p>
 

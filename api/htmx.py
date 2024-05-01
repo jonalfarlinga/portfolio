@@ -8,42 +8,52 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'about' else ''}"
             id="about"
-            hx-get="{API_HOST + ("/home?page=about" if active == 'blog' else "/about")}"
+            hx-get="{API_HOST}/about"
             hx-trigger="click"
-            hx-target="{"#content" if active != 'blog' else "body"}"
-            {'hx-swap-oob="true"' if active != 'blog' else ''}
+            hx-target="#content"
+            hx-swap="outerHtml"
+            hx-trigger="showBanner"
+            hx-swap-oob="true"
         >About Me</button>
         <button
             class="navlink {'nl-active' if active == 'folio' else ''}"
             id="folio"
-            hx-get="{API_HOST + ("/home?page=folio" if active == 'blog' else "/folio")}"
+            hx-get="{API_HOST}/folio"
             hx-trigger="click"
-            hx-target="{"#content" if active != 'blog' else "body"}"
-            {'hx-swap-oob="true"' if active != 'blog' else ''}
+            hx-target="#content"
+            hx-swap="outerHtml"
+            hx-trigger="showBanner"
+            hx-swap-oob="true"
         >Portfolio</button>
         <button
             class="navlink {'nl-active' if active == 'resume' else ''}"
             id="resume"
-            hx-get="{API_HOST + ("/home?page=resume" if active == 'blog' else "/resume")}"
+            hx-get="{API_HOST}/resume"
             hx-trigger="click"
-            hx-target="{"#content" if active != 'blog' else "body"}"
-            {'hx-swap-oob="true"' if active != 'blog' else ''}
+            hx-target="#content"
+            hx-swap="outerHtml"
+            hx-trigger="showBanner"
+            hx-swap-oob="true"
         >Resume</button>
         <button
             class="navlink {'nl-active' if active == 'vlog' else ''}"
             id="vlog"
-            hx-get="{API_HOST + ("/home?page=vlog" if active == 'blog' else "/vlog")}"
+            hx-get="{API_HOST}/vlog"
             hx-trigger="click"
-            hx-target="{"#content" if active != 'blog' else "body"}"
-            {'hx-swap-oob="true"' if active != 'blog' else ''}
+            hx-target="#content"
+            hx-swap="outerHtml"
+            hx-trigger="showBanner"
+            hx-swap-oob="true"
         >Video Demos</button>
         <button
             class="navlink {'nl-actve' if active == 'blog' else ''}"
             id="blog"
             hx-get="{API_HOST}/blogpage"
             hx-trigger="click"
-            hx-target="body"
-            {'hx-swap-oob="true"' if active != 'blog' else ''}
+            hx-target="#content"
+            hx-swap="outerHtml"
+            hx-trigger="hideBanner"
+            hx-swap-oob="true"
         >Blog</button>
     """
 
@@ -110,6 +120,7 @@ def portfolio_cards():
 
 def about_view():
     return navlink("about") + """
+      <div class="ps-5 pt-5" id="content">
         <h2>ABOUT ME</h2>
           <div>
           <div id="headshot">
@@ -128,19 +139,25 @@ def about_view():
             <p class="col text-warning">Passionate Developer</p>
           </div>
         </div>
+      </div>
     """
 
 
 def folio_view():
     return (
         navlink("folio") +
-        "<h2>PORTFOLIO</h2>" +
+        """
+        <div class="ps-5 pt-5" id="content">
+          <h2>PORTFOLIO</h2>
+        </div>
+        """ +
         portfolio_cards()
     )
 
 
 def resume_view():
     return navlink("resume") + """
+      <div class="ps-5 pt-5" id="content">
         <div>
           <h2>RESUME</h2>
           <div id="pdf">
@@ -261,11 +278,12 @@ def resume_view():
             </ul>
           </p>
         </div>
+      </div>
     """
 
 def vlog_view():
     return navlink("vlog") + """
-      <div>
+      <div class="ps-5 pt-5" id="content">
         <h2 class="mb-3">DEMOS</h2>
         <div>
           <h4>LeetCode75</h4>
@@ -301,7 +319,8 @@ def news_view():
             <td>{blog['date']}</td>
           </tr>
         """
-    return f"""
+    return navlink("blog") + f"""
+      <div class="ps-5 pt-5 blog-content" id="content">
         <h1>Blog List</h1>
         <table>
           <tr>
@@ -311,6 +330,7 @@ def news_view():
           </tr>
           {rows}
         </table>
+      </div>
     """
 
 def blog_view(id: str):
@@ -319,35 +339,23 @@ def blog_view(id: str):
         if blog.get('id') == id:
             data = blog
     return f"""
+      <div class="ps-5 pt-5 blog-content" id="content">
           <a
             href=''
             hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
-            hx-target="#blog-content">Blog List</a>
+            hx-target="#content"
+            hx-swap="outerHtml"
+          >Blog List</a>
           <h1>{data.get('title')}</h1>
           <h5 class="mb-5">{data.get('date')} || Topics: {data.get('topics')}</h5>
           <p>{data.get('content')}</p>
+      </div>
     """
 
 
 def blog_page_view():
-    return f"""
-    <div class="row p-0 m-0">
-      <nav class="d-flex flex-column col-2 p-4">
-        <hr />
-        <img src="./img/Ulfunnar_Reserve.jpg" class="row logo" alt="logo"/>
-        <hr />
-        {navlink("blog")}
-        <p class="mt-auto text-warning"><a href="https://github.com/jonalfarlinga/portfolio" target="_blank" rel="noopener noreferrer" class="gitlink">Web Portfolio</a> Github repo</p>
-      </nav>
-      <main class="container-fluid col p-0 m-0">
-        <div class="ps-5 pt-5" id="blog-content">
-          <!-- Content goes here -->
-          {news_view()}
-        </div>
-      </main>
-      <script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </div>
+    return navlink("blog") + """
+      <div class="ps-5 pt-5 blog-content" id="content">
 """
 
 def home_page_view(page: str):
