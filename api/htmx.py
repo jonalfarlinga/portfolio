@@ -10,8 +10,7 @@ def navlink(active: str):
             id="about"
             hx-get="{API_HOST}/about"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap="outerHtml"
+            hx-target="main"
             hx-trigger="showBanner"
             hx-swap-oob="true"
         >About Me</button>
@@ -20,8 +19,7 @@ def navlink(active: str):
             id="folio"
             hx-get="{API_HOST}/folio"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap="outerHtml"
+            hx-target="main"
             hx-trigger="showBanner"
             hx-swap-oob="true"
         >Portfolio</button>
@@ -30,8 +28,7 @@ def navlink(active: str):
             id="resume"
             hx-get="{API_HOST}/resume"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap="outerHtml"
+            hx-target="main"
             hx-trigger="showBanner"
             hx-swap-oob="true"
         >Resume</button>
@@ -40,8 +37,7 @@ def navlink(active: str):
             id="vlog"
             hx-get="{API_HOST}/vlog"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap="outerHtml"
+            hx-target="main"
             hx-trigger="showBanner"
             hx-swap-oob="true"
         >Video Demos</button>
@@ -50,12 +46,95 @@ def navlink(active: str):
             id="blog"
             hx-get="{API_HOST}/blogpage"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap="outerHtml"
+            hx-target="main"
             hx-trigger="hideBanner"
             hx-swap-oob="true"
         >Blog</button>
     """
+
+def banner():
+    return """
+        <header class="d-flex flex-column justify-content-center m-0 p-5">
+          <div class="header-info pt-3" id="info">
+            <h1 class="box m-0">Hello, I'm</h1>
+            <h1 class="box mb-3">Denny Bucklin</h1>
+            <h4 class="box" id="jobtitle">Software Developer</h4>
+            <button type="button" class="btn box" data-bs-toggle="modal" data-bs-target="#hireModal">
+              Contact Me
+            </button>
+          </div>
+        </header>
+      <!-- Modal -->
+      <div class="modal fade" id="hireModal" tabindex="-1" aria-labelledby="hireModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="hireModalLabel">Contact Info</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h3>Phone</h3>
+              <ul>
+                <li>
+                  <p><b>Phone:</b>
+                    +1-562-619-6459
+                  </p>
+                </li>
+              </ul>
+              <h3>Email</h3>
+              <ul>
+                <li>
+                  <p><b>Email:</b>
+                    <a href="mailto:dennis.bucklin@gmail.com">dennis.bucklin@gmail.com</a>
+                  </p>
+                </li>
+              </ul>
+              <h3>Sites</h3>
+              <ul>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://www.linkedin.com/in/dennis-bucklin"
+                  >LinkedIn</a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/jonalfarlinga"
+                  >Github for personal projects</a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://gitlab.com/dennis.bucklin"
+                  >Gitlab for education projects</a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://public.tableau.com/app/profile/dennis.bucklin/vizzes"
+                  >Tableau - Data Visualizations</a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.kaggle.com/dennisbucklin"
+                  >Kaggle - Data science and machine learning projects</a>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+"""
 
 
 def portfolio_cards():
@@ -119,7 +198,10 @@ def portfolio_cards():
 
 
 def about_view():
-    return navlink("about") + """
+    return (
+        navlink("about") +
+        banner() +
+        """
       <div class="ps-5 pt-5" id="content">
         <h2>ABOUT ME</h2>
           <div>
@@ -141,11 +223,13 @@ def about_view():
         </div>
       </div>
     """
+    )
 
 
 def folio_view():
     return (
         navlink("folio") +
+        banner() +
         """
         <div class="ps-5 pt-5" id="content">
           <h2>PORTFOLIO</h2>
@@ -156,7 +240,10 @@ def folio_view():
 
 
 def resume_view():
-    return navlink("resume") + """
+    return (
+        navlink("resume") +
+        banner() +
+        """
       <div class="ps-5 pt-5" id="content">
         <div>
           <h2>RESUME</h2>
@@ -282,7 +369,10 @@ def resume_view():
     """
 
 def vlog_view():
-    return navlink("vlog") + """
+    return (
+        navlink("vlog") +
+        banner() +
+        """
       <div class="ps-5 pt-5" id="content">
         <h2 class="mb-3">DEMOS</h2>
         <div>
@@ -321,7 +411,7 @@ def news_view():
           </tr>
         """
     return navlink("blog") + f"""
-      <div class="ps-5 pt-5 blog-content" id="content">
+      <div class="ps-5 pt-5 blog-content" id="#content">
         <h1>Blog List</h1>
         <table>
           <tr>
@@ -340,7 +430,7 @@ def blog_view(id: str):
         if blog.get('id') == id:
             data = blog
     return f"""
-      <div class="ps-5 pt-5 blog-content" id="content">
+      <div class="ps-5 pt-5 blog-content" id="#content">
           <a
             href=''
             href=''
@@ -353,127 +443,3 @@ def blog_view(id: str):
           <p>{data.get('content')}</p>
       </div>
     """
-
-
-def blog_page_view():
-    return navlink("blog") + """
-      <div class="ps-5 pt-5 blog-content" id="content">
-"""
-
-def home_page_view(page: str):
-    htmx = "Fetching content..."
-    match page:
-        case 'about':
-            htmx = about_view
-        case 'folio':
-            htmx = folio_view
-        case 'vlog':
-            htmx = vlog_view
-        case 'resume':
-            htmx = resume_view
-        case _:
-            htmx = lambda _: "No content"
-    return f"""
-    <div class="row p-0 m-0">
-      <nav class="d-flex flex-column col-2 p-4">
-        <hr />
-        <img src="./img/Ulfunnar_Reserve.jpg" class="row logo" alt="logo"/>
-        <h6 class="text-warning">
-          <div id="page-load" hx-post="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/count" hx-trigger="" hx-target=""></div>
-        </h6>
-        <hr />
-        {navlink(page)}
-        <p class="mt-auto text-warning"><a href="https://github.com/jonalfarlinga/portfolio" target="_blank" rel="noopener noreferrer" class="gitlink">Web Portfolio</a> Github repo</p>
-      </nav>
-      <main class="container-fluid col p-0 m-0">
-        <header class="d-flex flex-column justify-content-center m-0 p-5">
-          <div class="header-info pt-3" id="info">
-            <h1 class="box m-0">Hello, I'm</h1>
-            <h1 class="box mb-3">Denny Bucklin</h1>
-            <h4 class="box" id="jobtitle">Software Developer</h4>
-            <button type="button" class="btn box" data-bs-toggle="modal" data-bs-target="#hireModal">
-              Contact Me
-            </button>
-          </div>
-        </header>
-        <div class="ps-5 pt-5" id="content">
-            {htmx()}
-        </div>
-      </main>
-
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="hireModal" tabindex="-1" aria-labelledby="hireModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="hireModalLabel">Contact Info</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h3>Phone</h3>
-              <ul>
-                <li>
-                  <p><b>Phone:</b>
-                    +1-562-619-6459
-                  </p>
-                </li>
-              </ul>
-              <h3>Email</h3>
-              <ul>
-                <li>
-                  <p><b>Email:</b>
-                    <a href="mailto:dennis.bucklin@gmail.com">dennis.bucklin@gmail.com</a>
-                  </p>
-                </li>
-              </ul>
-              <h3>Sites</h3>
-              <ul>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="http://www.linkedin.com/in/dennis-bucklin"
-                  >LinkedIn</a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/jonalfarlinga"
-                  >Github for personal projects</a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://gitlab.com/dennis.bucklin"
-                  >Gitlab for education projects</a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://public.tableau.com/app/profile/dennis.bucklin/vizzes"
-                  >Tableau - Data Visualizations</a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.kaggle.com/dennisbucklin"
-                  >Kaggle - Data science and machine learning projects</a>
-                </li>
-              </ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </div>
-"""
