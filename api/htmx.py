@@ -413,8 +413,6 @@ def news_view():
             <td>
               <a
                 href=''
-                href=''
-                href=''
                 hx-get="{API_HOST}/blog?id={blog['id']}"
                 hx-target="#content"
               >{blog['title']}</a>
@@ -444,20 +442,13 @@ def blog_view(id: str):
         if blog.get('id') == id:
             data = blog
     return f"""
-      <div class="ps-5 pt-5 blog-content" id="content">
           <a
             href=''
-            href=''
-            href=''
             hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
-            hx-target="#content"
-            hx-swap="outerHtml"
-          >Blog List</a>
             hx-target="#content"
             hx-swap="outerHtml"
           >Blog List</a>
           <h1>{data.get('title')}</h1>
           <h5 class="mb-5">{data.get('date')} || Topics: {data.get('topics')}</h5>
           <p>{data.get('content')}</p>
-      </div>
     """
