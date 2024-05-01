@@ -59,4 +59,4 @@ def get_home(req: func.HttpRequest) -> func.HttpResponse:
 @app.function_name(name="blogpage")
 @app.route(route="blogpage")
 def get_blogpage(req: func.HttpRequest) -> func.HttpResponse:
-    return htmx.blog_page_view()
+    return htmx.news_view()
