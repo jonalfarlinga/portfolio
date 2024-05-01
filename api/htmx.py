@@ -10,7 +10,7 @@ def navlink(active: str):
             id="about"
             hx-get="{API_HOST + ("/home?page=about" if active == 'blog' else "/about")}"
             hx-trigger="click"
-            hx-target="#content"
+            hx-target="{"#content" if active != 'blog' else "body"}"
             {'hx-swap-oob="true"' if active != 'blog' else ''}
         >About Me</button>
         <button
@@ -18,7 +18,7 @@ def navlink(active: str):
             id="folio"
             hx-get="{API_HOST + ("/home?page=folio" if active == 'blog' else "/folio")}"
             hx-trigger="click"
-            hx-target="#content"
+            hx-target="{"#content" if active != 'blog' else "body"}"
             {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Portfolio</button>
         <button
@@ -26,7 +26,7 @@ def navlink(active: str):
             id="resume"
             hx-get="{API_HOST + ("/home?page=resume" if active == 'blog' else "/resume")}"
             hx-trigger="click"
-            hx-target="#content"
+            hx-target="{"#content" if active != 'blog' else "body"}"
             {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Resume</button>
         <button
@@ -34,7 +34,7 @@ def navlink(active: str):
             id="vlog"
             hx-get="{API_HOST + ("/home?page=vlog" if active == 'blog' else "/vlog")}"
             hx-trigger="click"
-            hx-target="#content"
+            hx-target="{"#content" if active != 'blog' else "body"}"
             {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Video Demos</button>
         <button
@@ -292,6 +292,7 @@ def news_view():
           <tr>
             <td>
               <a
+                href=''
                 hx-get="{API_HOST}/blog?id={blog['id']}"
                 hx-target="#blog-content"
               >{blog['title']}</a>
@@ -319,6 +320,7 @@ def blog_view(id: str):
             data = blog
     return f"""
           <a
+            href=''
             hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
             hx-target="#blog-content">Blog List</a>
           <h1>{data.get('title')}</h1>
