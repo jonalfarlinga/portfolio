@@ -9,6 +9,7 @@ def navlink(active: str):
             class="navlink {'nl-active' if active == 'about' else ''}"
             id="about"
             hx-get="{API_HOST}/about"
+            hx-get="{API_HOST}/about"
             hx-trigger="click"
             hx-target="main"
             hx-trigger="showBanner"
@@ -17,6 +18,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'folio' else ''}"
             id="folio"
+            hx-get="{API_HOST}/folio"
             hx-get="{API_HOST}/folio"
             hx-trigger="click"
             hx-target="main"
@@ -27,6 +29,7 @@ def navlink(active: str):
             class="navlink {'nl-active' if active == 'resume' else ''}"
             id="resume"
             hx-get="{API_HOST}/resume"
+            hx-get="{API_HOST}/resume"
             hx-trigger="click"
             hx-target="main"
             hx-trigger="showBanner"
@@ -35,6 +38,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'vlog' else ''}"
             id="vlog"
+            hx-get="{API_HOST}/vlog"
             hx-get="{API_HOST}/vlog"
             hx-trigger="click"
             hx-target="main"
@@ -222,6 +226,9 @@ def about_view():
           </div>
         </div>
       </div>
+          </div>
+        </div>
+      </div>
     """
     )
 
@@ -366,6 +373,8 @@ def resume_view():
           </p>
         </div>
       </div>
+        </div>
+      </div>
     """
 
 def vlog_view():
@@ -402,6 +411,7 @@ def news_view():
               <a
                 href=''
                 href=''
+                href=''
                 hx-get="{API_HOST}/blog?id={blog['id']}"
                 hx-target="#blog-content"
               >{blog['title']}</a>
@@ -422,6 +432,7 @@ def news_view():
           {rows}
         </table>
       </div>
+      </div>
     """
 
 def blog_view(id: str):
@@ -434,7 +445,11 @@ def blog_view(id: str):
           <a
             href=''
             href=''
+            href=''
             hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
+            hx-target="#content"
+            hx-swap="outerHtml"
+          >Blog List</a>
             hx-target="#content"
             hx-swap="outerHtml"
           >Blog List</a>
