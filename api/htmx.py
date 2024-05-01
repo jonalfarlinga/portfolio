@@ -43,7 +43,7 @@ def navlink(active: str):
             hx-get="{API_HOST}/blogpage"
             hx-trigger="click"
             hx-target="body"
-            {'hx-swap-oob="true"' if active == 'blog' else ''}
+            {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Blog</button>
     """
 
@@ -290,7 +290,12 @@ def news_view():
     for blog in BLOGS:
         rows += f"""
           <tr>
-            <td><a href="{API_HOST}/blog?id={blog['id']}">{blog['title']}</a></td>
+            <td>
+              <a
+                hx-get="{API_HOST}/blog?id={blog['id']}"
+                hx-target="#blog-content"
+              >{blog['title']}</a>
+            </td>
             <td>{blog['topics']}</td>
             <td>{blog['date']}</td>
           </tr>
