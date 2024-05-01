@@ -8,7 +8,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'about' else ''}"
             id="about"
-            hx-get="{API_HOST + "/home?page=about" if active == 'blog' else "/about"}"
+            hx-get="{API_HOST + ("/home?page=about" if active == 'blog' else "/about")}"
             hx-trigger="click"
             hx-target="#content"
             hx-swap-oob="true"
@@ -16,7 +16,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'folio' else ''}"
             id="folio"
-            hx-get="{API_HOST + "/home?page=folio" if active == 'blog' else "/folio"}"
+            hx-get="{API_HOST + ("/home?page=folio" if active == 'blog' else "/folio")}"
             hx-trigger="click"
             hx-target="#content"
             hx-swap-oob="true"
@@ -24,7 +24,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'resume' else ''}"
             id="resume"
-            hx-get="{API_HOST + "/home?page=resume" if active == 'blog' else "/resume"}"
+            hx-get="{API_HOST + ("/home?page=resume" if active == 'blog' else "/resume")}"
             hx-trigger="click"
             hx-target="#content"
             hx-swap-oob="true"
@@ -32,7 +32,7 @@ def navlink(active: str):
         <button
             class="navlink {'nl-active' if active == 'vlog' else ''}"
             id="vlog"
-            hx-get="{API_HOST + "/home?page=vlog" if active == 'blog' else "/vlog"}"
+            hx-get="{API_HOST + ("/home?page=vlog" if active == 'blog' else "/vlog")}"
             hx-trigger="click"
             hx-target="#content"
             hx-swap-oob="true"
