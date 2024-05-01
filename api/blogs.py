@@ -14,7 +14,7 @@ BLOGS = [
 
     <p>I began the project with the goal of building a resume, a portfolio, and an in-demand skill set along with a product that I could show on LinkedIn and Github. As soon as I started building the HTML, I knew this project would hold my attention long after I could show employers my resume. And once I had deployed, I was excited to learn everything that Azure could do for me. I suddenly wanted to deploy everything I built. I like programming. I love building useful tools that I can share with others.</p>
 
-    </h3>Parts of the Challenge</h3>
+    <h3>Parts of the Challenge</h3>
     <ul>
       <li><b>Front-End:</b> Create the Resume in HTML/CSS</li>
       <li><b>Back-End:</b> Set up source control and visitor counter</li>

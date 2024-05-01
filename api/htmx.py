@@ -11,7 +11,7 @@ def navlink(active: str):
             hx-get="{API_HOST + ("/home?page=about" if active == 'blog' else "/about")}"
             hx-trigger="click"
             hx-target="#content"
-            hx-swap-oob="true"
+            {'hx-swap-oob="true"' if active != 'blog' else ''}
         >About Me</button>
         <button
             class="navlink {'nl-active' if active == 'folio' else ''}"
@@ -19,7 +19,7 @@ def navlink(active: str):
             hx-get="{API_HOST + ("/home?page=folio" if active == 'blog' else "/folio")}"
             hx-trigger="click"
             hx-target="#content"
-            hx-swap-oob="true"
+            {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Portfolio</button>
         <button
             class="navlink {'nl-active' if active == 'resume' else ''}"
@@ -27,7 +27,7 @@ def navlink(active: str):
             hx-get="{API_HOST + ("/home?page=resume" if active == 'blog' else "/resume")}"
             hx-trigger="click"
             hx-target="#content"
-            hx-swap-oob="true"
+            {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Resume</button>
         <button
             class="navlink {'nl-active' if active == 'vlog' else ''}"
@@ -35,7 +35,7 @@ def navlink(active: str):
             hx-get="{API_HOST + ("/home?page=vlog" if active == 'blog' else "/vlog")}"
             hx-trigger="click"
             hx-target="#content"
-            hx-swap-oob="true"
+            {'hx-swap-oob="true"' if active != 'blog' else ''}
         >Video Demos</button>
         <button
             class="navlink {'nl-actve' if active == 'blog' else ''}"
@@ -43,7 +43,7 @@ def navlink(active: str):
             hx-get="{API_HOST}/blogpage"
             hx-trigger="click"
             hx-target="body"
-            hx-swap-oob="true"
+            {'hx-swap-oob="true"' if active == 'blog' else ''}
         >Blog</button>
     """
 
@@ -335,10 +335,9 @@ def blog_page_view():
       <main class="container-fluid col p-0 m-0">
         <div class="ps-5 pt-5" id="blog-content">
           <!-- Content goes here -->
-          <p>Fetching Content...</p>
+          {news_view()}
         </div>
       </main>
-      <div id="page-load" hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news" hx-trigger="load" hx-target="#blog-content"></div>
       <script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </div>
