@@ -49,13 +49,6 @@ def get_blog(req: func.HttpRequest) -> func.HttpResponse:
     return str(htmx.blog_view(id))
 
 
-@app.function_name(name="home")
-@app.route(route="home")
-def get_home(req: func.HttpRequest) -> func.HttpResponse:
-    page = req.params.get('page')
-    return htmx.home_page_view(page)
-
-
 @app.function_name(name="blogpage")
 @app.route(route="blogpage")
 def get_blogpage(req: func.HttpRequest) -> func.HttpResponse:
