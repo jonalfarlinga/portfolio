@@ -1,4 +1,5 @@
 from api.projects import PROJECTS
+from api.blogs import BLOGS
 API_HOST = "https://apifunc2kjoo37i24nsw.azurewebsites.net/api"
 # flake8: noqa Linting disabled to allow for long lines in HTML
 
@@ -36,6 +37,14 @@ def navlink(active: str):
             hx-target="#content"
             hx-swap-oob="true"
         >Video Demos</button>
+        <button
+            class="navlink"
+            id="blog"
+            hx-get="https://portfolio.denny-bucklin.net/blog.html"
+            hx-trigger="click"
+            hx-target="html"
+            hx-swap="outerHTML"
+        >Blog</button>
     """
 
 
@@ -145,8 +154,11 @@ def resume_view():
           <style>#pdf { text-align: right; display: block; margin-right: 2em }</style>
           <h3>Full Stack Developer</h3>
           <h6>Phone: (562) 619-6459 |
-            <a href="mailto:dennis.bucklin@gmail.com"
-          >dennis.bucklin@gmail.com</a> | San Marcos, TX </h6>
+            <a
+              href="mailto:dennis.bucklin@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >dennis.bucklin@gmail.com</a> | San Marcos, TX </h6>
           <hr/>
           <h4>Technical Skills</h4>
           <p>
@@ -165,7 +177,7 @@ def resume_view():
               <li>Built a frontend using React to present a single-page application and Redux and RTK Query to minimize component coupling</li>
               <li>Developed using Docker collaboratively with a group, focusing on inclusivity and Agile methodologies</li>
               <li>Deployed using a cloud provider on the backend and Gitlab Pages for the frontend</li>
-              <li>Live Project: <a href=https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/>https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/</a></li>
+              <li>Live Project: <a href=https://birddex-canarydevs-7c43724f43a204a4ae45736f97fbd05a88591d9dbc16.gitlab.io/>https://canarydevs.gitlab.io/birddex/</a></li>
             </ul>
           </p>
           <p>
@@ -174,7 +186,7 @@ def resume_view():
               <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
               <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
               <li>Employed Azure Web Apps to host the live application</li>
-              <li>Live Project: <a href=https://calends.azureedge.net/>https://calends.azureedge.net/</a></li>
+              <li>Live Project: <a href=https://calends.proficientdr.com>https://calends.proficientdr.com</a></li>
             </ul>
           </p>
           <p>
@@ -270,4 +282,41 @@ def vlog_view():
           >Video Demo</a>
         </div>
       </div>
+    """
+
+
+def news_view():
+    rows = ""
+    for blog in BLOGS:
+        rows += f"""
+          <tr>
+            <td><a href="{API_HOST}/blog?{blog['title']}">{blog['title']}</a></td>
+            <td>{blog['topics']}</td>
+            <td>{blog['date']}</td>
+          </tr>
+        """
+    return f"""
+        <h1>Blog List</h1>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Topics</th>
+            <th>Date</th>
+          </tr>
+          {rows}
+        </table>
+    """
+
+def blog_view(title):
+    data = {}
+    for blog in BLOGS:
+        if blog.get('title') == title:
+            data = blog
+    return f"""
+          <a
+            hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
+            hx-target="#blog-content"
+          <h1>{title}</h1>
+          <h5 class="mb-5">{data.get('date')} || Topics: {data.get('topics')}</h5>
+          <p>{data.get('content')}</p>
     """

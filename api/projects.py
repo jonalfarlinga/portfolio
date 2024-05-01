@@ -77,12 +77,12 @@ PROJECTS = [
         "body": """
         <div class="d-flex">
           <a
-            href="https://github.com/jonalfarlinga/calends-online"
+            href="https://github.com/jonalfarlinga/calends-lite"
             target="_blank"
             rel="noopener noreferrer"
           >Github Link</a>
           <a
-            href="https://calends.azurewebsites.net"
+            href="https://calends.proficientdr.com"
             target="_blank"
             rel="noopener noreferrer"
           >Live Site</a>
@@ -102,33 +102,38 @@ PROJECTS = [
             <p>
             <b>The Work:</b> I first created a terminal app using Python's BeautifulSoup library.  The app would scrape the institution's web site for academic calendar data and use that to create a .docx output which includes a table of class meeting dates with holidays filled in.
             </p>
-          <ul>
-          <li>
-            <p>
-                I then ported the code to a React and Django full-stack app. I later rebuilt the app using FastAPI for the backend. The current iteration of Calends-Online doesn't need a database or authorization, so it made more sense to serve the API through FastAPI with only the Python logic and the API router.
-                On the web, I build and render a table in HTML, which the user can highlight and copy into their favorite text editor. The table is created in an otherwise invisible div and rendered when it becomes relevant.
-            </p>
-          </li>
-          </ul>
+            <ul>
+              <li>
+                <p>
+                  I then ported the code to a React and Django full-stack app. I later rebuilt the app using FastAPI for the backend. The current iteration of Calends-Online doesn't need a database or authorization, so it made more sense to serve the API through FastAPI with only the Python logic and the API router.
+                  On the web, I build and render a table in HTML, which the user can highlight and copy into their favorite text editor. The table is created in an otherwise invisible div and rendered when it becomes relevant.
+                </p>
+              </li>
+              <li>
+                <p>
+                  I refactored again, creating a new project using Azure Functions and Static Web sites. This is significantly cheaper without seriously impacting the user experience.
+                </p>
+              </li>
+            </ul>
           </li>
           <li>
             <p>
                 <b>The Experience:</b> This project has a simple front end, but it was incredibly enjoyable practice for backend logic.
             </p>
-          <ul>
-          <li>
-            <p>
-                <b>I learned a lot about how I learn.</b> I already knew that I prefer to learn by doing.  When I started using Beautiful Soup, at first I wasn't getting what I expected from my script. After a few attempts at writing code, I decided to open a Python interpreter so that I could quickly iterate through changes in the code. By reviewing docs and attempting several different commands in the interpreter, I gained a thorough knowledge of both BS4 and the webpage I was working with. I realized that while documents can be helpful, I find them much more helpful after I've started using the API and failed a few times.
-            </p>
-          </li>
-          <li>
-            <p>
-                <b>I like building useful projects.</b> Calends was born of an idle request by a professor I know. She was frustrated with the tedium of creating academic calendars for each class each semester. It was a simple problem that is unreasonably hard to accomplish. Once I presented it to my wife, she was so excited, she told a friend and they both used it immediately. That result was far more reward per effort than any of my previous "for fun" projects.
-            </p>
+            <ul>
+              <li>
+                <p>
+                  <b>I learned a lot about how I learn.</b> I already knew that I prefer to learn by doing.  When I started using Beautiful Soup, at first I wasn't getting what I expected from my script. After a few attempts at writing code, I decided to open a Python interpreter so that I could quickly iterate through changes in the code. By reviewing docs and attempting several different commands in the interpreter, I gained a thorough knowledge of both BS4 and the webpage I was working with. I realized that while documents can be helpful, I find them much more helpful after I've started using the API and failed a few times.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>I like building useful projects.</b> Calends was born of an idle request by a professor I know. She was frustrated with the tedium of creating academic calendars for each class each semester. It was a simple problem that is unreasonably hard to accomplish. Once I presented it to my wife, she was so excited, she told a friend and they both used it immediately. That result was far more reward per effort than any of my previous "for fun" projects.
+                </p>
+              </li>
+            </ul>
           </li>
         </ul>
-        </li>
-      <ul>
             """,
     },
     {
@@ -192,7 +197,7 @@ PROJECTS = [
         {
         "src": "./img/construction.jpg",
         "alt": "Under Construction",
-        "name": "Task-Time",
+        "name": "Task-Time <UNDER CONSTRUCTION>",
         "id": "tasktime",
         "description": "A simple todo app made for fun, education, and personal use with Django, MongoDB and HTMX.",
         "stack": "Stack: Django, MongoDB, HTMX, HTML, CSS, Git",

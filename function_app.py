@@ -8,12 +8,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 @app.function_name(name="about")
 @app.route(route="about")
 def get_about(req: func.HttpRequest) -> func.HttpResponse:
-    body = htmx.about_view()
-    headers = {
-        "Access-Control-Allow-Origin": "*"
-    }
-    response = func.HttpResponse(body=body, status_code=200, headers=headers)
-    return response
+    return htmx.about_view()
 
 
 @app.function_name(name="folio")
@@ -39,3 +34,16 @@ def increment_counter(req: func.HttpRequest) -> func.HttpResponse:
 @app.route(route="vlog")
 def get_vlog(req: func.HttpRequest) -> func.HttpResponse:
     return htmx.vlog_view()
+
+
+@app.function_name(name="news")
+@app.route(route="news")
+def get_blog_timeline(req: func.HttpRequest) -> func.HttpResponse:
+    return htmx.news_view()
+
+
+@app.function_name(name="blog")
+@app.route(route="blog")
+def get_blog(req: func.HttpRequest) -> func.HttpResponse:
+    title = req.params.get('title')
+    return htmx.blog_view(title)
