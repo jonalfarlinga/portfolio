@@ -1,6 +1,7 @@
 # flake8: noqa
 BLOGS = [
     {
+        "id": "challenge_blog",
         "title": "Building my Cloud Portfolio",
         "date": "April 30, 2024",
         "topics": "Resume, Portfolio, Azure, CI/CD, Python, HTMX, CSS",
