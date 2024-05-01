@@ -237,12 +237,12 @@ def folio_view():
     return (
         navlink("folio") +
         banner() +
-        """
+        f"""
         <div class="ps-5 pt-5" id="content">
           <h2>PORTFOLIO</h2>
+        {portfolio_cards()}
         </div>
-        """ +
-        portfolio_cards()
+        """
     )
 
 
@@ -416,7 +416,7 @@ def news_view():
                 href=''
                 href=''
                 hx-get="{API_HOST}/blog?id={blog['id']}"
-                hx-target="#blog-content"
+                hx-target="#content"
               >{blog['title']}</a>
             </td>
             <td>{blog['topics']}</td>
@@ -424,7 +424,7 @@ def news_view():
           </tr>
         """
     return navlink("blog") + f"""
-      <div class="ps-5 pt-5 blog-content" id="#content">
+      <div class="ps-5 pt-5 blog-content" id="content">
         <h1>Blog List</h1>
         <table>
           <tr>
@@ -444,7 +444,7 @@ def blog_view(id: str):
         if blog.get('id') == id:
             data = blog
     return f"""
-      <div class="ps-5 pt-5 blog-content" id="#content">
+      <div class="ps-5 pt-5 blog-content" id="content">
           <a
             href=''
             href=''
