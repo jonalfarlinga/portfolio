@@ -17,18 +17,16 @@
         <button
             class="navlink"
             id="about"
-            hx-get="https://portfolio.denny-bucklin.net"
+            hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/home"
+            hx-target="body"
             hx-trigger="click"
-            hx-target="#content"
-            hx-swap-oob="true"
         >About Me</button>
         <button
             class="navlink nl-active"
             id="blog"
-            hx-get="https://portfolio.denny-bucklin.net/blog"
+            hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/blogpage"
             hx-trigger="click"
-            hx-target="html"
-            hx-swap="outerHTML"
+            hx-target="body"
         >Blog</button>
         <p class="mt-auto text-warning"><a href="https://github.com/jonalfarlinga/portfolio" target="_blank" rel="noopener noreferrer" class="gitlink">Web Portfolio</a> Github repo</p>
       </nav>
