@@ -9,49 +9,40 @@ def navlink(active: str):
             class="navlink {'nl-active' if active == 'about' else ''}"
             id="about"
             hx-get="{API_HOST}/about"
-            hx-get="{API_HOST}/about"
             hx-trigger="click"
             hx-target="main"
-            hx-trigger="showBanner"
             hx-swap-oob="true"
         >About Me</button>
         <button
             class="navlink {'nl-active' if active == 'folio' else ''}"
             id="folio"
             hx-get="{API_HOST}/folio"
-            hx-get="{API_HOST}/folio"
             hx-trigger="click"
             hx-target="main"
-            hx-trigger="showBanner"
             hx-swap-oob="true"
         >Portfolio</button>
         <button
             class="navlink {'nl-active' if active == 'resume' else ''}"
             id="resume"
             hx-get="{API_HOST}/resume"
-            hx-get="{API_HOST}/resume"
             hx-trigger="click"
             hx-target="main"
-            hx-trigger="showBanner"
             hx-swap-oob="true"
         >Resume</button>
         <button
             class="navlink {'nl-active' if active == 'vlog' else ''}"
             id="vlog"
             hx-get="{API_HOST}/vlog"
-            hx-get="{API_HOST}/vlog"
             hx-trigger="click"
             hx-target="main"
-            hx-trigger="showBanner"
             hx-swap-oob="true"
         >Video Demos</button>
         <button
-            class="navlink {'nl-actve' if active == 'blog' else ''}"
+            class="navlink {'nl-active' if active == 'blog' else ''}"
             id="blog"
             hx-get="{API_HOST}/blogpage"
             hx-trigger="click"
             hx-target="main"
-            hx-trigger="hideBanner"
             hx-swap-oob="true"
         >Blog</button>
     """
@@ -446,7 +437,7 @@ def blog_view(id: str):
             href=''
             hx-get="https://apifunc2kjoo37i24nsw.azurewebsites.net/api/news"
             hx-target="#content"
-            hx-swap="outerHtml"
+            hx-swap="outerHTML"
           >Blog List</a>
           <h1>{data.get('title')}</h1>
           <h5 class="mb-5">{data.get('date')} || Topics: {data.get('topics')}</h5>
