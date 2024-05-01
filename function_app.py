@@ -45,8 +45,8 @@ def get_blog_timeline(req: func.HttpRequest) -> func.HttpResponse:
 @app.function_name(name="blog")
 @app.route(route="blog")
 def get_blog(req: func.HttpRequest) -> func.HttpResponse:
-    title = req.params.get('id')
-    return htmx.blog_view(title)
+    id = req.params.get('id')
+    return str(htmx.blog_view(id))
 
 
 @app.function_name(name="home")
