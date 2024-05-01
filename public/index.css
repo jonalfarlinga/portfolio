@@ -131,6 +131,14 @@ video {
     padding-top: 3rem;
 }
 
+/* Blog tags */
+
+.blog-img {
+    max-height: 50vh;
+    width:90%;
+    object-fit: scale-down;
+}
+
 /* Global tags */
 
 p {
