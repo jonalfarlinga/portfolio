@@ -140,7 +140,7 @@ video {
 }
 
 .bloglink {
-    padding-right: none;
+    padding-right: 0;
 }
 
 .blog-content {
@@ -153,6 +153,10 @@ p {
     font-family: 'josefin sans', sans-serif;
     font-weight: 500;
     font-size: medium;
+}
+
+code {
+    color: #F2DAC4
 }
 
 .box {
