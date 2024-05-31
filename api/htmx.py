@@ -37,6 +37,7 @@ def navlink(active: str):
             hx-target="main"
             hx-swap-oob="true"
         >Media</button>
+    """
         # <button
         #     class="navlink {'nl-active' if active == 'blog' else ''}"
         #     id="blog"
@@ -45,7 +46,6 @@ def navlink(active: str):
         #     hx-target="main"
         #     hx-swap-oob="true"
         # >Blog</button>
-    """
 
 def banner():
     return """
