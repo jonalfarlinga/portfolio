@@ -36,15 +36,15 @@ def navlink(active: str):
             hx-trigger="click"
             hx-target="main"
             hx-swap-oob="true"
-        >Video Demos</button>
-        <button
-            class="navlink {'nl-active' if active == 'blog' else ''}"
-            id="blog"
-            hx-get="{API_HOST}/blogpage"
-            hx-trigger="click"
-            hx-target="main"
-            hx-swap-oob="true"
-        >Blog</button>
+        >Media</button>
+        # <button
+        #     class="navlink {'nl-active' if active == 'blog' else ''}"
+        #     id="blog"
+        #     hx-get="{API_HOST}/blogpage"
+        #     hx-trigger="click"
+        #     hx-target="main"
+        #     hx-swap-oob="true"
+        # >Blog</button>
     """
 
 def banner():
@@ -390,6 +390,12 @@ def vlog_view():
             target="_blank"
             rel="noopener noreferrer"
           >Video Demo</a>
+          <h4>Blogs</h4>
+          2024-05-28: <a
+            href="https://hackingviking.blogspot.com/2024/05/building-my-cloud-portfolio-may-29-2024.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Building my Cloud Portfolio</a>
         </div>
       </div>
     """

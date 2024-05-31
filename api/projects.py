@@ -73,7 +73,7 @@ PROJECTS = [
         "name": "Calends Online",
         "id": "calends",
         "description": "A syllabus-builder for college classes.",
-        "stack": "Stack: Bootstrap, React, FastAPI, Azure Cloud App",
+        "stack": "Stack: Bootstrap, React, Python, Azure Functions",
         "body": """
         <div class="d-flex">
           <a
@@ -105,7 +105,7 @@ PROJECTS = [
             <ul>
               <li>
                 <p>
-                  I then ported the code to a React and Django full-stack app. I later rebuilt the app using FastAPI for the backend. The current iteration of Calends-Online doesn't need a database or authorization, so it made more sense to serve the API through FastAPI with only the Python logic and the API router.
+                  I then ported the code to a React and Django full-stack app. I later rebuilt the app using FastAPI for the backend. The current iteration of Calends didn't need a database or authorization, so it made more sense to serve the API through FastAPI with only the Python logic and the API router.
                   On the web, I build and render a table in HTML, which the user can highlight and copy into their favorite text editor. The table is created in an otherwise invisible div and rendered when it becomes relevant.
                 </p>
               </li>
@@ -114,6 +114,8 @@ PROJECTS = [
                   I refactored again, creating a new project using Azure Functions and Static Web sites. This is significantly cheaper without seriously impacting the user experience.
                 </p>
               </li>
+              <li>
+                Finally, I created Github Actions and linked the repo to Azure so that when I push to main, the repo automatically deploys to the live service, and tests are run automatically as well.
             </ul>
           </li>
           <li>
@@ -134,7 +136,50 @@ PROJECTS = [
             </ul>
           </li>
         </ul>
-            """,
+        """,
+    },
+    {
+        "src": "./img/pdiff.png",
+        "alt": "PDiF Screenshot",
+        "name": "PDiF diff calculator",
+        "id": "pdiff",
+        "description": "A differ utility for PDFs",
+        "stack": "Stack: Bootstrap, React, Python, Azure Functions",
+        "body": """
+        <div class="d-flex">
+          <a
+            href="https://www.github.com/jonalfarlinga/pdiff"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
+          <a
+            href="https://pdiff.proficientdr.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Live Site</a>
+        </div>
+        <ul>
+          <li>
+            <b>The Pitch:</b> Have you ever tried had to grade a second draft of a 15-page final? Only to find out the student only changed 3 words?! PDiF to the rescue! This app runs a Meyer's diffing algorithm on 2 pdfs and outputs the text of the pdf with removals highlighted in red, and additions highlighted in green.
+          </li>
+          <li>
+            <p>
+              <b>The Work:</b> This project required me to take two separate files as input on the front end, tranlate it to readable Python data, and parse the PDF data in an intelligible way. With the diff in hand, I had to present it in a user-friendly fashion for non-programmers.
+            </p>
+            <ul>
+              <li>
+                The app is a React front-end running on Azure Storage as a static site.
+              </li>
+              <li>
+                Azure Functions on the backend running Python is a cheap and quit way to provide the diffing logic.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <b>The Experience:</b> I learned about the Meyer's diff algorithm, but decided to use python's <code>difflib</code> instead of rolling my own. I also got to practice css styling, building pagination, and other frontend skills.
+          </li>
+        </ul>
+        """,
     },
     {
         "src": "./img/dealers_choice.png",
@@ -194,39 +239,39 @@ PROJECTS = [
         </ul>
         """,
     },
-        {
-        "src": "./img/construction.jpg",
-        "alt": "Under Construction",
-        "name": "Task-Time <UNDER CONSTRUCTION>",
-        "id": "tasktime",
-        "description": "A simple todo app made for fun, education, and personal use with Django, MongoDB and HTMX.",
-        "stack": "Stack: Django, MongoDB, HTMX, HTML, CSS, Git",
-        "body": """
-        <div class="d-flex">
-          <a
-            href="https://gitlab.com/dennis.bucklin/task-time"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Gitlab Link</a>
-        </div>
-        <ul>
-          <li>
-            <p><b>The Pitch:</b> Task-Time will allow users to add and schedule tasks easily and quickly. Drag-and-drop scheduling and recurring appointments are just some of the features I plan to implement. </p>
-          </li>
-          <li>
-            <p><b>The Work:</b> So far, I've built a Django project that uses MongoDB in a Docker environment to store tasks and validate users. Django templates are rendered as a single page app using HTMX in the browser. </p>
-          </li>
-          <li>
-            <p><b>The Experience:</b> Getting Django to cooperate with HTMX wasn't as obvious as I'd like, but I worked it out. </p>
-            <ul>
-              <li>
-                <p><b></b></p>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        """
-    },
+    #     {
+    #     "src": "./img/construction.jpg",
+    #     "alt": "Under Construction",
+    #     "name": "Task-Time <UNDER CONSTRUCTION>",
+    #     "id": "tasktime",
+    #     "description": "A simple todo app made for fun, education, and personal use with Django, MongoDB and HTMX.",
+    #     "stack": "Stack: Django, MongoDB, HTMX, HTML, CSS, Git",
+    #     "body": """
+    #     <div class="d-flex">
+    #       <a
+    #         href="https://gitlab.com/dennis.bucklin/task-time"
+    #         target="_blank"
+    #         rel="noopener noreferrer"
+    #       >Gitlab Link</a>
+    #     </div>
+    #     <ul>
+    #       <li>
+    #         <p><b>The Pitch:</b> Task-Time will allow users to add and schedule tasks easily and quickly. Drag-and-drop scheduling and recurring appointments are just some of the features I plan to implement. </p>
+    #       </li>
+    #       <li>
+    #         <p><b>The Work:</b> So far, I've built a Django project that uses MongoDB in a Docker environment to store tasks and validate users. Django templates are rendered as a single page app using HTMX in the browser. </p>
+    #       </li>
+    #       <li>
+    #         <p><b>The Experience:</b> Getting Django to cooperate with HTMX wasn't as obvious as I'd like, but I worked it out. </p>
+    #         <ul>
+    #           <li>
+    #             <p><b></b></p>
+    #           </li>
+    #         </ul>
+    #       </li>
+    #     </ul>
+    #     """
+    # },
     {
         "src": "./img/mlp_dash_screenshot.png",
         "alt": "MLP-Dash screenshot",
