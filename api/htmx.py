@@ -396,6 +396,11 @@ def vlog_view():
             target="_blank"
             rel="noopener noreferrer"
           >Building my Cloud Portfolio</a>
+          2024-06-08: <a
+            href="https://hackingviking.blogspot.com/2024/06/software-testing-basics-part-1.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Building my Cloud Portfolio</a>
         </div>
       </div>
     """
