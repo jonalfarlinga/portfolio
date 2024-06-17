@@ -349,5 +349,46 @@ PROJECTS = [
           </li>
         </ul>
         """
-    }
+    },
+    {
+        "src": "./img/proficient_screenshot.jpg",
+        "alt": "ProficientDR screenshot",
+        "name": "Proficient",
+        "id": "proficient",
+        "description": "A portal to your web-based teaching aid.",
+        "stack": "Stack: Authentication, React, FastAPI, Rest, Automated Testing, CI/CD, SQL Database, CDN, DNS, Heroku",
+        "body": """
+        <div class="d-flex">
+          <a
+            href="https://github.com/jonalfarlinga/proficient"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Gitlab Link</a>
+          <a
+            href="https://pdiff.proficientdr.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Live Site</a>
+        </div>
+        <ul>
+          <li>
+            <p><b>The Pitch:</b> Proficient is a portal to my available teaching aids. We have Pdiff and Calends with more to come! Proficient manages your login details accross all the apps, and keep an eye out for more functionality on the portal as well! </p>
+          </li>
+          <li>
+            <p><b>The Work:</b> I built this app primarily as a central authentication procedure and portal to Calends and Pdiff. This involved creating a bespoke authentication procedure. I began with the FastAPI Authentication tutorial, and I created a frontend app with RTK Query and local storage for the JWT token. </p>
+          </li>
+          <li>
+            <p><b>The Experience:</b> I had to tackle several authentication issues. Using the FastAPI quickstart meant that I need to learn extensively about the way FastAPI handles the token. Then I had to do it again when I wanted to implement the front end. </p>
+            <ul>
+              <li>
+                <p>I returned to Auth and made sure that only the token is left in local storage, while user data stays internal to the app. </p>
+              </li>
+              <li>
+                <p>I learned to make user data fields editable with hidable input fields. </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        """
+    },
 ]
