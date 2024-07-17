@@ -400,7 +400,7 @@ def vlog_view():
             href="https://hackingviking.blogspot.com/2024/06/software-testing-basics-part-1.html"
             target="_blank"
             rel="noopener noreferrer"
-          >Building my Cloud Portfolio</a>
+          >Software Testing Basics: Part 1</a>
         </div>
       </div>
     """
