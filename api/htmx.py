@@ -38,14 +38,6 @@ def navlink(active: str):
             hx-swap-oob="true"
         >Media</button>
     """
-        # <button
-        #     class="navlink {'nl-active' if active == 'blog' else ''}"
-        #     id="blog"
-        #     hx-get="{API_HOST}/blogpage"
-        #     hx-trigger="click"
-        #     hx-target="main"
-        #     hx-swap-oob="true"
-        # >Blog</button>
 
 def banner():
     return """
@@ -264,10 +256,10 @@ def resume_view():
           <hr/>
           <h4>Technical Skills</h4>
           <p>
-            <b>Programming Languages</b> | JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2, Mongosh
-            <b>Front-End</b> | HTMX, React 18, Next.js, DOM manipulation
-            <b>Back-End</b> | Node, Django, FastAPI, Flask
-            <b>Other</b> | Git, CI/CD, Docker, Azure, Deployment, Authorization, Tableau
+            <b>Programming Languages</b> | Go 1.13, JavaScript ES6+, Java 21, SQL, HTML5, CSS, Python 3, R 4.3.2, Mongosh<br/>
+            <b>Front-End</b> | HTMX, React 18, Next.js, DOM manipulation<br/>
+            <b>Back-End</b> | Node, Django, FastAPI, Flask<br/>
+            <b>Other</b> | Git, CI/CD, Docker, Azure, Deployment, Authorization, Tableau<br/>
           </p>
           <hr/>
           <h4>Revelant Projects</h4>
@@ -283,12 +275,13 @@ def resume_view():
             </ul>
           </p>
           <p>
-            <b>Full Stack Developer | Calends-Online |  React, Python, FastAPI, Azure</b>
+            <b>Full Stack Developer | Proficient |  React, Python, FastAPI, Azure</b>
             <ul>
               <li>Automated the data entry process using Python requests library for web scraping & Beautiful Soup library for handling HTML inputs saving user time and effort when generating a syllabus</li>
+              <li>Automated determining changes in pdf versions by implementing a Myers diff algorithm on the text</li>
               <li>Personalized solutions based on feedback gathered through customer interviews to best address & exceed user needs</li>
               <li>Employed Azure Web Apps to host the live application</li>
-              <li>Live Project: <a href=https://calends.proficientdr.com>https://calends.proficientdr.com</a></li>
+              <li>Live Project: <a href=https://www.proficientdr.com/#/dashboard>https://www.proficientdr.com/#/dashboard</a></li>
             </ul>
           </p>
           <p>
@@ -304,7 +297,49 @@ def resume_view():
             <ul>
               <li>Processed and cleaned data using Python for data mining and manipulation to increase accuracy and performance of machine learning models</li>
               <li>Utilized Python libraries including Numpy, Pandas, & Statistics, along with machine learning models such as LightGBM, XGBoost, Sklearn to identify key trends, patterns, & predict individual outcomes on Kaggle</li>
-              <li>Notebook : <a href=https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition>https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition</a></li>
+              <li>Notebook: <a href=https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition>https://www.kaggle.com/code/dennisbucklin/health-outcomes-for-horses-competition</a></li>
+            </ul>
+          </p>
+          <hr/>
+          <h4>Professional Experience</h4>
+          <p>
+            <b>Utilities Analyst | Texas State University</b>
+            <ul>
+              <li>Developed annual utility use projections to improve future business decisions</li>
+              <li>Supported business operations with up-to-date utility use and cost data</li>
+              <li>Led team of interns developing AI utilities manager</li>
+            </ul>
+          </p>
+          <p>
+            <b>Software Engineer Intern | Arctex</b>
+            <ul>
+              <li>Team player coding MERN-stack app from greenfield</li>
+              <li>Implemented user authorization and Stripe payments</li>
+              <li>Collaborated with a small team to build functional and performant software</li>
+            </ul>
+          </p>
+          <p>
+            <b>AI Trainer | Freelance</b>
+            <ul>
+              <li>Analyzed language model outputs to improve the efficacy of end-user interactions with AI</li>
+              <li>Developed and refined coding challenges for AI chatbots in Python and Java</li>
+              <li>Authored high-quality solutions and explanations for complex coding problems, ensuring clear understanding and application of programming concepts in AI model development</li>
+            </ul>
+          </p>
+          <p>
+            <b>Field Engineer | Insituform Technologies</b>
+            <ul>
+              <li>Enhanced operational efficiency & quality by 15 percent using statistical analysis to develop SOPs, resulting in a 15 percent reduction in errors</li>
+              <li>Oversaw production and delivery operations for manufacturing plant earning $1 mil monthly revenue</li>
+              <li>Preserved operational readiness and designed and implemented training for 15 manufacturing employees</li>
+            </ul>
+          </p>
+          <p>
+            <b>Petty Officer | United States Coast Guard</b>
+            <ul>
+              <li>Maintained physical plant of 4 boats, 2 cars, 4 small engines, and 1 diesel generator to achieve 100%% operational readiness</li>
+              <li>Trained 14 peers and subordinates to maintain machinery, operate radios, etc.</li>
+              <li>Ensured public & commercial boating safety & security by standing radio guard, utilizing VHS radio & multi-line phone</li>
             </ul>
           </p>
           <hr/>
@@ -336,32 +371,6 @@ def resume_view():
               <li>Research Methods, Advanced Algebra, Capstone Research Project using Multiple Regression</li>
             </ul>
           </p>
-          <hr/>
-          <h4>Professional Experience</h4>
-          <p>
-            <b>AI Trainer | Freelance</b>
-            <ul>
-              <li>Analyzed language model outputs to improve the efficacy of end-user interactions with AI</li>
-              <li>Developed and refined coding challenges for AI chatbots in Python and Java</li>
-              <li>Authored high-quality solutions and explanations for complex coding problems, ensuring clear understanding and application of programming concepts in AI model development</li>
-            </ul>
-          </p>
-          <p>
-            <b>Field Engineer | Insituform Technologies</b>
-            <ul>
-              <li>Enhanced operational efficiency & quality by 15 percent using statistical analysis to develop SOPs, resulting in a 15 percent reduction in errors</li>
-              <li>Oversaw production and delivery operations for manufacturing plant earning $1 mil monthly revenue</li>
-              <li>Preserved operational readiness and designed and implemented training for 15 manufacturing employees</li>
-            </ul>
-          </p>
-          <p>
-            <b>Petty Officer | United States Coast Guard</b>
-            <ul>
-              <li>Maintained physical plant of 4 boats, 2 cars, 4 small engines, and 1 diesel generator to achieve 100% operational readiness</li>
-              <li>Trained 14 peers and subordinates to maintain machinery, operate radios, etc.</li>
-              <li>Ensured public & commercial boating safety & security by standing radio guard, utilizing VHS radio & multi-line phone</li>
-            </ul>
-          </p>
         </div>
       </div>
         </div>
@@ -378,29 +387,35 @@ def vlog_view():
       <div class="ps-5 pt-5" id="content">
         <h2 class="mb-3">DEMOS</h2>
         <div>
-          <h4>LeetCode75</h4>
-          <a
-            href="https://www.youtube.com/playlist?list=PLg92KPokRp2zgOolEORM5m9TcvVrUjo1G"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Youtube Playlist</a>
-          <h4>Birddex Video Demo</h4>
-          <a
-            href="https://youtu.be/xJsiBTLnWy4"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Video Demo</a>
+          <p>
+            <h4>LeetCode75</h4>
+            <a
+              href="https://www.youtube.com/playlist?list=PLg92KPokRp2zgOolEORM5m9TcvVrUjo1G"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Youtube Playlist</a>
+          </p>
+          <p>
+            <h4>Birddex Video Demo</h4>
+            <a
+              href="https://youtu.be/xJsiBTLnWy4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Video Demo</a>
+          </p>
           <h4>Blogs</h4>
-          2024-05-28: <a
-            href="https://hackingviking.blogspot.com/2024/05/building-my-cloud-portfolio-may-29-2024.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Building my Cloud Portfolio</a>
-          2024-06-08: <a
-            href="https://hackingviking.blogspot.com/2024/06/software-testing-basics-part-1.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Software Testing Basics: Part 1</a>
+            <p>
+              2024-05-28: <a
+                href="https://hackingviking.blogspot.com/2024/05/building-my-cloud-portfolio-may-29-2024.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Building my Cloud Portfolio</a><br/>
+              2024-06-08: <a
+                href="https://hackingviking.blogspot.com/2024/06/software-testing-basics-part-1.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Software Testing Basics: Part 1</a><br/>
+            </p>
         </div>
       </div>
     """
@@ -437,6 +452,7 @@ def news_view():
       </div>
       </div>
     """
+
 
 def blog_view(id: str):
     data = {}
